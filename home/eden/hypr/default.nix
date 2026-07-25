@@ -59,7 +59,8 @@ in
         -- local editor = "${defaults.editor}"
         -- local terminal = "${defaults.terminal}"
         -- local screenLocker = "${defaults.screenLocker}"
-        local monitors = ${toLua { } monitorList}
+
+        monitors = ${toLua { } monitorList}
 
         ${builtins.readFile (self + "/config/configHome/hypr/hyprland.lua")}
       '';
