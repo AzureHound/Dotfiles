@@ -101,7 +101,7 @@ hl.window_rule({ match = { title = Pip }, no_initial_focus = true })
 hl.window_rule({ match = { title = Pip }, keep_aspect_ratio = true })
 hl.window_rule({ match = { title = Pip }, focus_on_activate = false })
 hl.window_rule({ match = { title = Pip }, size = "(monitor_w*0.26) (monitor_h*0.26)" })
-hl.window_rule({ match = { title = Pip }, move = "(monitor_w*0.735) (monitor_h*0.009)" })
+hl.window_rule({ match = { title = Pip }, move = "(monitor_w*0.736) (monitor_h*0.009)" })
 -- hl.window_rule({ match = { title = Pip }, move = "(monitor_w*0.734) (monitor_h*0.049)" })
 
 -- Screensaver
