@@ -4,7 +4,7 @@
     updater.enable = true;
     scanner = {
       enable = true;
-      interval = "Mon *-*-* 00:00:00";
+      interval = "*-*-10 00:00:00";
     };
   };
 }
