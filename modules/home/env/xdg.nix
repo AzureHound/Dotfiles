@@ -121,6 +121,7 @@ let
 
   specifics = {
     "x-scheme-handler/spotify" = [ "spotify.desktop" ];
+    "x-scheme-handler/steam" = [ "steam.desktop" ];
   };
 
   associations = associations' // specifics;
