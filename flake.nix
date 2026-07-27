@@ -8,7 +8,9 @@
     # http://web.archive.org/web/20250806225139/https://nix.dev/manual/nix/2.28/protocols/tarball-fetcher#lockable-http-tarball-protocol
     nixpkgs.url = "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.zst";
 
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    # nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
+    nixos-raspberrypi.url = "github:nvmd/nixos-raspberrypi/main";
 
     home-manager = {
       url = "github:nix-community/home-manager";

@@ -62,6 +62,22 @@
         "type": "github"
       }
     },
+    "argononed": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1729566243,
+        "narHash": "sha256-DPNI0Dpk5aym3Baf5UbEe5GENDrSmmXVdriRSWE+rgk=",
+        "owner": "nvmd",
+        "repo": "argononed",
+        "rev": "16dbee54d49b66d5654d228d1061246b440ef7cf",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvmd",
+        "repo": "argononed",
+        "type": "github"
+      }
+    },
     "autoaspm": {
       "inputs": {
         "nixpkgs": [
@@ -203,6 +219,21 @@
       },
       "original": {
         "owner": "NixOS",
+        "repo": "flake-compat",
+        "type": "github"
+      }
+    },
+    "flake-compat_2": {
+      "locked": {
+        "lastModified": 1767039857,
+        "narHash": "sha256-vNpUSpF5Nuw8xvDLj2KCwwksIbjua2LZCqhV1LNRDns=",
+        "owner": "edolstra",
+        "repo": "flake-compat",
+        "rev": "5edf11c44bc78a0d334f6334cdaf7d60d732daab",
+        "type": "github"
+      },
+      "original": {
+        "owner": "edolstra",
         "repo": "flake-compat",
         "type": "github"
       }
@@ -739,22 +770,51 @@
         "type": "github"
       }
     },
-    "nixos-hardware": {
+    "nixos-images": {
       "inputs": {
-        "nixpkgs": "nixpkgs_2"
+        "nixos-stable": [
+          "nixos-raspberrypi",
+          "nixpkgs"
+        ],
+        "nixos-unstable": [
+          "nixos-raspberrypi",
+          "nixpkgs"
+        ]
       },
       "locked": {
-        "lastModified": 1784310968,
-        "narHash": "sha256-rkSPTePrKqs4dg+i7ZFCq93+HrClac6oSwXX927SVjA=",
-        "owner": "NixOS",
-        "repo": "nixos-hardware",
-        "rev": "779c32a00155994c86cde8213a8dd4df139d4355",
+        "lastModified": 1747747741,
+        "narHash": "sha256-LUOH27unNWbGTvZFitHonraNx0JF/55h30r9WxqrznM=",
+        "owner": "nvmd",
+        "repo": "nixos-images",
+        "rev": "cbbd6db325775096680b65e2a32fb6187c09bbb4",
         "type": "github"
       },
       "original": {
-        "owner": "NixOS",
-        "ref": "master",
-        "repo": "nixos-hardware",
+        "owner": "nvmd",
+        "ref": "sdimage-installer",
+        "repo": "nixos-images",
+        "type": "github"
+      }
+    },
+    "nixos-raspberrypi": {
+      "inputs": {
+        "argononed": "argononed",
+        "flake-compat": "flake-compat_2",
+        "nixos-images": "nixos-images",
+        "nixpkgs": "nixpkgs_2"
+      },
+      "locked": {
+        "lastModified": 1783459375,
+        "narHash": "sha256-S2pb+Mtv0qTeRr+6J5ESgelNjG2YKl4WqKjdPrJx5rM=",
+        "owner": "nvmd",
+        "repo": "nixos-raspberrypi",
+        "rev": "c845922f260b306d4529a4535bbb6e7f8cfe2887",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvmd",
+        "ref": "main",
+        "repo": "nixos-raspberrypi",
         "type": "github"
       }
     },
@@ -791,15 +851,18 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1767892417,
-        "narHash": "sha256-8bW3q88CEg2u4hSP66Vf4lpbLonHz7hqDNBMcCY7E9U=",
-        "rev": "3497aa5c9457a9d88d71fa93a4a8368816fbeeba",
-        "type": "tarball",
-        "url": "https://releases.nixos.org/nixos/unstable/nixos-26.05pre924538.3497aa5c9457/nixexprs.tar.xz"
+        "lastModified": 1782847189,
+        "narHash": "sha256-twXPFqFsrrY5r28Zh7Homgcp2gUMBgQ6WDS98Q/3xFI=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "b6018f87da91d19d0ab4cf979885689b469cdd41",
+        "type": "github"
       },
       "original": {
-        "type": "tarball",
-        "url": "https://channels.nixos.org/nixos-unstable/nixexprs.tar.xz"
+        "owner": "NixOS",
+        "ref": "nixos-25.11",
+        "repo": "nixpkgs",
+        "type": "github"
       }
     },
     "nixpkgs_3": {
@@ -939,7 +1002,7 @@
         "hyprland-plugins": "hyprland-plugins",
         "millennium": "millennium",
         "nixbot": "nixbot",
-        "nixos-hardware": "nixos-hardware",
+        "nixos-raspberrypi": "nixos-raspberrypi",
         "nixpkgs": "nixpkgs_3",
         "nixvim": "nixvim",
         "nur": "nur",
