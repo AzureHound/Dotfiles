@@ -101,6 +101,16 @@ in
       };
     };
 
+    home.packages = [
+      (pkgs.writeShellScriptBin "steam" ''
+        if [[ "$1" == steam://* ]]; then
+          exec systemd-run --user --quiet /run/current-system/sw/bin/steam "$@"
+        fi
+
+        exec /run/current-system/sw/bin/steam "$@"
+      '')
+    ];
+
     xdg.configFile = mkCfgLink (
       map (f: "rofi/${f}") [
         "style.rasi"
