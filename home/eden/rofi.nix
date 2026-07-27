@@ -22,7 +22,7 @@ in
       theme = "~/.config/rofi/style.rasi";
 
       extraConfig = {
-        modi = "drun,run,filebrowser";
+        modes = "drun,run,filebrowser";
         case-sensitive = false;
         cycle = false;
         filter = "";
