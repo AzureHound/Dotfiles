@@ -8,13 +8,16 @@
 {
   imports = [
     inputs.disko.nixosModules.disko
-    inputs.nixos-hardware.nixosModules.raspberry-pi-5
+    inputs.nixos-raspberrypi.nixosModules.raspberry-pi-5.base
+    inputs.nixos-raspberrypi.nixosModules.raspberry-pi-5.bluetooth
+    inputs.nixos-raspberrypi.nixosModules.raspberry-pi-5.page-size-16k
+    inputs.nixos-raspberrypi.nixosModules.usb-gadget-ethernet
 
     ./disko.nix
     ./hardware.nix
   ];
 
-  hardware.raspberry-pi."5".apply-overlays-dtmerge.enable = true;
+  boot.loader.raspberry-pi.bootloader = "kernel";
 
   home-manager.users.${name} = import ./home.nix;
 
@@ -44,19 +47,9 @@
       # db
       postgresql.enable = true;
       redis.enable = true;
-
-      # xservices
-      pi.enable = true;
-      truenas.enable = true;
     };
 
     system = {
-      kernel.packages = pkgs.linuxPackagesFor (
-        pkgs.callPackage "${inputs.nixos-hardware}/raspberry-pi/common/kernel.nix" {
-          rpiVersion = 5;
-        }
-      );
-
       boot = {
         loader = "none";
         silent = true;
@@ -65,6 +58,7 @@
         enable = true;
         mode = "server";
       };
+      bluetooth.enable = true;
     };
   };
 
