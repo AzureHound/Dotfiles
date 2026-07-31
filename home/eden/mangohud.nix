@@ -28,7 +28,7 @@
       vram = true;
 
       fps = true;
-      fps_limit = 60;
+      fps_limit = 120;
       fps_limit_method = "early";
       fps_color_change = [
         "ED8796"
