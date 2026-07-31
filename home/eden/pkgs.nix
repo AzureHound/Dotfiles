@@ -27,6 +27,7 @@ in
     just
     mediainfo
     openssl
+    ouch
     procps
     pwgen
     rsync

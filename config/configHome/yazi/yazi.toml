@@ -25,6 +25,10 @@ folder = [
   { run = 'xdg-open "$@"', orphan = true, desc = "xdg-open", for = "linux" },
 ]
 
+extract = [
+  { run = 'ouch d -y "$@"', desc = "Extract here with ouch", for = "unix" },
+]
+
 text = [
   { run = '$EDITOR "$@"', block = true, desc = "$EDITOR", for = "linux" },
   { run = 'nvim "$@"', block = true, desc = "neovim", for = "linux" },
@@ -118,6 +122,8 @@ prepend_previewers = [
   { mime = "application/msword", run = "office" },
   { mime = "application/oasis.opendocument.*", run = "office" },
   { mime = "application/openxmlformats-officedocument.*", run = "office" },
+
+  { mime = "application/{*zip,tar,bzip2,7z*,rar,xz,zstd,java-archive}", run = "ouch --archive-icon='🗄️ ' --show-file-icons" },
 
   { url = "*/", run = "folder", sync = true },
   { url = "/run/user/1000/gvfs/**/*", run = "noop" },

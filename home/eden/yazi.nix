@@ -56,6 +56,13 @@ in
           hash = "sha256-i4SfBdKtjVJS04H75tC5P2LaMyxaSFy7D98oRpq1n0w=";
         };
 
+        ouch = pkgs.fetchFromGitHub {
+          owner = "ndtoan96";
+          repo = "ouch.yazi";
+          rev = "main";
+          hash = "sha256-14x/bD0aD9hXONaqQD8Dt7rLBCMq7bkVLH6uCPOQ0C8=";
+        };
+
         searchjump = pkgs.fetchFromGitHub {
           owner = "DreamMaoMao";
           repo = "searchjump.yazi";

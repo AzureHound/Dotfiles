@@ -23,6 +23,11 @@ mgr.prepend_keymap = [
     "f",
   ], run = "filter --smart", desc = "Filter files" },
 
+  # archive
+  { on = [
+    "C",
+  ], run = "plugin ouch", desc = "Compress with ouch" },
+
   # gvfs
   { on = [
     "M",
