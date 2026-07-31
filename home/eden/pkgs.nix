@@ -40,12 +40,14 @@ in
   ]
 
   ++ optionals cfg.graphical.enable [
+    aria2
     asciinema
     # basalt
     calcure
     mkpkg.cbonsai
     chafa
     circumflex
+    concord-tui
     croc
     # dipc
     duf
