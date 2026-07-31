@@ -34,7 +34,7 @@ in
       # Bitwarden
       {
         id = "nngceckbapebfimnlniiiahkandclblb";
-        version = "2026.6.1";
+        version = "2026.7.0";
         hash = "sha256-PwXLkgGS9YjvBRUHgwiEtqiXkXmWngv3xA4Boqj9f74=";
       }
 
