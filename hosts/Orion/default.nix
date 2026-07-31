@@ -48,6 +48,7 @@
       };
       bluetooth.enable = true;
       containers.enable = true;
+      # security.binaries.enable = true;
       virtualization = {
         enable = true;
         windows.enable = true;
