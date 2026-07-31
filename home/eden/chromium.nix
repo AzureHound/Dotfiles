@@ -118,6 +118,9 @@ in
           # rm speechd
           (enableFeature false "speech-api")
           (enableFeature false "speech-synthesis-api")
+
+          # WebBluetooth
+          "--enable-web-bluetooth"
         ]
 
         # Security
@@ -182,6 +185,9 @@ in
 
             # Enable content settings partitioning
             "ContentSettingsPartitioning"
+
+            # Enable WebBluetooth
+            "WebBluetooth"
           ])
 
           (features "disable" [

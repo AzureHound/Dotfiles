@@ -32,6 +32,7 @@ in
             "audio"
             "bluetooth"
             "cloudflared"
+            "dialout"
             "disk"
             "docker"
             "gamemode"
