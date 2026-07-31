@@ -35,7 +35,7 @@ in
       {
         id = "nngceckbapebfimnlniiiahkandclblb";
         version = "2026.6.1";
-        hash = "sha256-szBs8uPHBpgx4VAprSLOtD1XOAjUgecoAp6aJsvuT74=";
+        hash = "sha256-PwXLkgGS9YjvBRUHgwiEtqiXkXmWngv3xA4Boqj9f74=";
       }
 
       # uBlock Origin
