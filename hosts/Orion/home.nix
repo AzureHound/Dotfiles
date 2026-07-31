@@ -21,7 +21,7 @@
   };
 
   programs = {
-    # chromium.enable = true;
+    chromium.enable = true;
     firefox.enable = true;
     # fish.enable = true;
     hyprland.enable = true;
