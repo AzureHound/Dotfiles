@@ -90,7 +90,7 @@
         # Sounds
         {
           monitor = "DP-1";
-          text = "cmd[update:1000] echo \"$(~/config/hypr/scripts/media)\"";
+          text = "cmd[update:1000] echo \"$(~/Developer/dotfiles/config/configHome/hypr/scripts/media)\"";
           shadow_passes = 1;
           color = "$subtext0";
           font_size = 16;
