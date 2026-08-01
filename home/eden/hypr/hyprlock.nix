@@ -45,16 +45,6 @@
           vibrancy = 0.2100;
           vibrancy_darkness = 0.0;
         }
-
-        # mpvlock
-        # {
-        #   monitor = "DP-1";
-        #   # path = "";
-        #   color = "rgba(0, 0, 0, 0)";
-        #
-        #   blur_passes = 0;
-        #   noise = 0.0;
-        # }
       ];
 
       label = [

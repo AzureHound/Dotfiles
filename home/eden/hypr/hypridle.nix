@@ -14,10 +14,8 @@ in
 
       "$scripts" = "$HOME/.config/hypr/scripts";
 
-      "$mpvlock" = "$scripts/mpvlock";
       "$screensaver" = "pidof hyprlock || $scripts/screensaver";
 
-      # "$lock_cmd" = "$mpvlock";
       "$lock_cmd" = "pidof hyprlock || hyprlock";
       "$suspend_cmd" = "systemctl suspend || loginctl suspend";
 
