@@ -78,8 +78,8 @@ hl.bind(meta .. " + SHIFT + N", hl.dsp.exec_cmd(notifications_menu_reload))
 -- hl.bind(meta .. " + SHIFT + W", hl.dsp.exec_cmd("pypr wall next"))
 hl.bind(meta .. " + SHIFT + W", hl.dsp.exec_cmd(scripts .. "/wallpaper"))
 hl.bind(meta .. " + W",         hl.dsp.exec_cmd(launcher_scripts .. "/wallpaper/wallpaper"))
--- hl.bind(meta .. " + SHIFT + W", hl.dsp.exec_cmd(conf_dir .. "/scripts/mpvpaper"))
--- hl.bind(meta .. " + W",         hl.dsp.exec_cmd(launcher_scripts .. "/live-wallpaper/live_wallpaper"))
+-- hl.bind(meta .. " + SHIFT + W", hl.dsp.exec_cmd(scripts .. "/mpvpaper"))
+-- hl.bind(meta .. " + W",         hl.dsp.exec_cmd(launcher_scripts .. "/wallpaper/mpvpaper"))
 
 -- Apps
 hl.bind(meta  .. " + RETURN",         hl.dsp.exec_cmd(term))

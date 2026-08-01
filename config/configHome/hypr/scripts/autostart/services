@@ -10,7 +10,7 @@ pypr --debug /tmp/pypr.log &
 # swww-daemon --format xrgb &
 
 # Live Wallpaper
-# "$HOME/.config/hypr/scripts/mpvpaper -i 30" &
+# "$HOME/Developer/dotfiles/config/configHome/hypr/scripts/mpvpaper -i 30" &
 
 # Notify connecting & disconnecting devices
 # devify &

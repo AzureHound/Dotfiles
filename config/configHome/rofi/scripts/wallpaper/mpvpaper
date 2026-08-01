@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+
+wallpapers_dir="$HOME/Videos/Wallpapers"
+cache_dir="$HOME/.cache/mpvpaper"
+MPV_OPTIONS="--no-audio --loop-file=inf --no-resume-playback --gpu-api=vulkan --hwdec=nvdec --vd-lavc-threads=$(nproc) --vf=fps=30"
+
+mkdir -p "$cache_dir"
+
+build_theme() {
+  rows=$1
+  cols=$2
+  icon_size=$3
+
+  echo "element{orientation:vertical;}element-text{horizontal-align:0.5;}element-icon{size:$icon_size.0000em;}listview{lines:$rows;columns:$cols;}"
+}
+
+theme="$HOME/.config/rofi/scripts/wallpaper/style.rasi"
+
+rofi_cmd="rofi -dmenu -i -show-icons -theme-str $(build_theme 5 5 9) -theme ${theme}"
+
+choice=$(
+  fd --base-directory "$wallpapers_dir" --type f --max-depth 1 . | grep -v "README.md" | sort -V |
+    while read -r A; do
+      if [[ "$A" =~ \.(mp4|mkv|webm|avi|mov)$ ]]; then
+        thumb="$cache_dir/$A.jpg"
+        [ ! -f "$thumb" ] && ffmpegthumbnailer -i "$wallpapers_dir/$A" -o "$thumb" -s 256 -c jpeg
+        echo -en "$A\x00icon\x1f$thumb\n"
+      else
+        echo -en "$A\x00icon\x1f$wallpapers_dir/$A\n"
+      fi
+    done |
+    $rofi_cmd
+)
+
+[ -z "$choice" ] && exit 0
+
+wallpaper="$wallpapers_dir/$choice"
+
+if [[ "$wallpaper" =~ \.(mp4|mkv|webm|avi|mov)$ ]]; then
+  pkill mpvpaper
+  mpvpaper -o "$MPV_OPTIONS" '*' "$wallpaper" &
+  ln -sf "$wallpaper" "$HOME/.config/hypr/lock"
+elif pgrep -x "hyprpaper" >/dev/null; then
+  pkill mpvpaper
+  hyprctl hyprpaper wallpaper ",$wallpaper"
+  ln -sf "$wallpaper" "$HOME/Videos/Wallpapers/lock"
+fi
+
+exit 0

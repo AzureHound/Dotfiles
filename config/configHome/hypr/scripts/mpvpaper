@@ -2,7 +2,7 @@
 
 DISPLAY="DP-1"
 WALLPAPER_DIR="$HOME/Videos/Wallpapers"
-GST_OPTIONS="no-audio loop"
+MPV_OPTIONS="--no-audio --loop-file=inf --no-resume-playback --vo=libmpv"
 
 INTERVAL_MINUTES=""
 
@@ -41,9 +41,9 @@ change_wallpaper() {
 
   ln -sf "$RANDOM_VIDEO" "$HOME/Videos/Wallpapers/lock"
 
-  OLD_PIDS=$(pgrep gslapper)
+  OLD_PIDS=$(pgrep mpvpaper)
 
-  gslapper -f -o "$GST_OPTIONS" "$DISPLAY" "$RANDOM_VIDEO"
+  mpvpaper -f -o "$MPV_OPTIONS" "$DISPLAY" "$RANDOM_VIDEO" &
 
   sleep 1
 
