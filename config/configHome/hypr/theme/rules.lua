@@ -81,6 +81,11 @@ hl.window_rule({ match = { class = steam }, immediate = true })
 hl.window_rule({ match = { class = steam }, fullscreen = true })
 hl.window_rule({ match = { class = steam }, idle_inhibit = "always" })
 
+local yazi = "^(terminal filechooser)$"
+hl.window_rule({ match = { title = yazi }, float = true })
+hl.window_rule({ match = { title = yazi }, center = true })
+hl.window_rule({ match = { title = yazi }, size = "(monitor_w*0.84) (monitor_h*0.84)" })
+
 local thunderbird = "^(.*thunderbird.*)$"
 hl.window_rule({ match = { class = thunderbird, title = "^(.*Write.*)" }, float = true })
 hl.window_rule({ match = { class = thunderbird, title = "^(.*Write.*)" }, center = true })

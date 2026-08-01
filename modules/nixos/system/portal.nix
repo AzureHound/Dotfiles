@@ -19,10 +19,14 @@ in
       common = {
         default = [ "gtk" ];
 
+        "org.freedesktop.impl.portal.FileChooser" = [ "termfilechooser" ];
         "org.freedesktop.impl.portal.Secret" = [ "gnome-keyring" ];
       };
     };
 
-    extraPortals = with pkgs; [ xdg-desktop-portal-gtk ];
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-termfilechooser
+    ];
   };
 }
