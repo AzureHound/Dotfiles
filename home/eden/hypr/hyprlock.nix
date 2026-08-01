@@ -28,6 +28,7 @@
       general = {
         hide_cursor = true;
         fail_timeout = 200;
+        immediate_render = true;
       };
 
       background = [
