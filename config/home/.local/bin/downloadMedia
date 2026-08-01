@@ -18,11 +18,11 @@ notify_error() {
 }
 
 download_images() {
-  gallery-dl -d "$image_folder" --download-archive "$image_folder/{$1}/archive.sqlite3" "$2" --filter "$3"
+  gallery-dl -d "$image_folder" --download-archive "$image_folder/$1/archive.sqlite3" "$2" --filter "$3"
 }
 
 download_videos() {
-  gallery-dl -d "$video_folder" --download-archive "$video_folder/{$1}/archive.sqlite3" "$2" --filter "$3"
+  gallery-dl -d "$video_folder" --download-archive "$video_folder/$1/archive.sqlite3" "$2" --filter "$3"
 }
 
 download_pinterest() {
