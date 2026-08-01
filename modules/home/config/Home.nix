@@ -21,7 +21,7 @@ in
     (mkIf config.pixel.profiles.graphical.enable {
       home.file = mkHomeLink [
         ".czrc"
-        ".face.icon"
+        ".face"
         ".local/bin"
         ".local/share/fonts"
       ];

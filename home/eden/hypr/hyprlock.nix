@@ -140,7 +140,7 @@
         # User Img
         {
           monitor = "DP-1";
-          path = "~/.face.icon";
+          path = "~/.face";
           shadow_passes = 2;
           rounding = -1; # negative values mean circle
           position = "0, 100";
