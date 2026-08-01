@@ -48,6 +48,11 @@ download_reddit() {
   notify "Reddit ($1) Complete"
 }
 
+download_wallhaven() {
+  download_images "wallhaven" "$1"
+  notify "Wallhaven ($1) Complete"
+}
+
 download_unknown_site() {
   download_images "$1" "extension not in ('mp4', 'gif')"
   download_videos "$1" "extension in ('mp4', 'gif')"
@@ -81,6 +86,9 @@ while IFS= read -r url; do
     ;;
   *reddit.com*)
     download_reddit "$url"
+    ;;
+  *wallhaven.cc*)
+    download_wallhaven "$url"
     ;;
   *)
     download_unknown_site "$url"
