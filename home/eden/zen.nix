@@ -76,7 +76,7 @@ in
           id = 2;
           name = "Code";
           icon = "tree";
-          color = "green";
+          color = "cyan";
         };
         "3" = {
           id = 3;

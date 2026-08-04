@@ -68,7 +68,7 @@ in
           name = "Code";
           id = 2;
           icon = "tree";
-          color = "green";
+          color = "turquoise";
         };
         "3" = {
           name = "Social";
