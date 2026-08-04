@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-term="footclient"
+term="kitty --single-instance"
 browser="firefox"
 tmux="$HOME/.local/bin/multiplexer"
 

@@ -8,4 +8,4 @@
 # thunderbird &
 
 # Term Apps
-# footclient -e btop &
+# kitty --single-instance -e btop &
