@@ -35,8 +35,5 @@ in
         "theme"
       ]
     );
-
-    # Theme
-    catppuccin.sway.enable = false;
   };
 }
