@@ -82,6 +82,12 @@ in
           icon = "fence";
           color = "blue";
         };
+        "5" = {
+          id = 5;
+          name = "Len";
+          icon = "fruit";
+          color = "purple";
+        };
       };
 
       search = {
