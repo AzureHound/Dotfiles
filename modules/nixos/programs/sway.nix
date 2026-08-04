@@ -19,9 +19,7 @@ in
       enable = true;
       wrapperFeatures.gtk = true;
 
-      extraPackages = with pkgs; [
-        swayidle
-      ];
+      extraPackages = lib.mkForce [ ];
     };
   };
 }

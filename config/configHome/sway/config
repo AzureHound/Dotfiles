@@ -9,7 +9,6 @@ set $scripts ~/.config/sway/scripts
 # Source
 include $config/apps.conf
 include $config/input.conf
-include $config/swayidle.conf
 include $config/binds.conf
 include $config/monitors.conf
 # include $config/swaybar.conf

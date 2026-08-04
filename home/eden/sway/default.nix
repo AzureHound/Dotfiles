@@ -14,6 +14,7 @@ in
   options.programs.sway.enable = lib.mkEnableOption "Enable Sway";
 
   imports = [
+    ./swayidle.nix
     ./swaylock.nix
   ];
 
