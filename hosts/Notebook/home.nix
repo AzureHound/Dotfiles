@@ -1,9 +1,4 @@
-{
-  lib,
-  pkgs,
-  mkCfgLink,
-  ...
-}:
+{ lib, pkgs, ... }:
 
 let
   inherit (lib.modules) mkAfter;
@@ -50,9 +45,6 @@ in
     simple-scan
     swaybg
   ];
-
-  # configHome
-  xdg.configFile = mkCfgLink [ "swaylock" ];
 
   # ignore .desktop
   ign.desktop = [ "zen-beta.desktop" ];

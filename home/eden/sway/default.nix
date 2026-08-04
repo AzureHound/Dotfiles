@@ -13,7 +13,9 @@ in
 {
   options.programs.sway.enable = lib.mkEnableOption "Enable Sway";
 
-  imports = [ ];
+  imports = [
+    ./swaylock.nix
+  ];
 
   config = mkIf config.programs.sway.enable {
     wayland.windowManager.sway = {

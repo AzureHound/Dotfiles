@@ -20,7 +20,6 @@ in
       wrapperFeatures.gtk = true;
 
       extraPackages = with pkgs; [
-        swaylock
         swayidle
       ];
     };
