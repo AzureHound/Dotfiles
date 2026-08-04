@@ -2,7 +2,7 @@
 
 term="footclient"
 browser="firefox"
-tmux="$HOME/.local/bin/tmux-session-init"
+tmux="$HOME/.local/bin/multiplexer"
 
 swaymsg "
   workspace 2; exec $browser;

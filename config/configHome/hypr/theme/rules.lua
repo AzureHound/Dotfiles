@@ -124,7 +124,7 @@ hl.window_rule({ match = { class = videobridge }, no_initial_focus = true })
 hl.window_rule({ match = { class = videobridge }, opacity = "0.0 override 0.0 override" })
 
 -- TMUX
-local tmux = "^(.*session-init.*)$"
+local tmux = "^(.*multiplexer.*)$"
 hl.window_rule({ match = { class = tmux }, no_anim = true })
 hl.window_rule({ match = { class = tmux }, workspace = "1" })
 -- hl.window_rule({ match = { class = tmux }, fullscreen = true })
