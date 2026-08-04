@@ -3,7 +3,6 @@
 { lib, inputs, ... }:
 
 lib.fixedPoints.makeExtensible (final: {
-  hardware = import ./hardware.nix;
   helpers = import ./helpers.nix { inherit lib; };
   mkHost = import ./mkhost.nix { inherit inputs lib; };
   secrets = import ./secrets.nix { inherit inputs; };
