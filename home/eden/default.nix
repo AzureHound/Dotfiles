@@ -66,6 +66,7 @@
     ./starship.nix
     ./steam.nix
     ./superfile.nix
+    ./sway
     ./swayimg.nix
     ./swaync.nix
     ./syncthing.nix

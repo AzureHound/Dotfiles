@@ -29,6 +29,7 @@ in
     firefox.enable = true;
     foot.enable = true;
     qutebrowser.enable = true;
+    sway.enable = true;
     thunderbird.enable = true;
     zsh.enable = true;
 
@@ -50,10 +51,7 @@ in
   ];
 
   # configHome
-  xdg.configFile = mkCfgLink [
-    "sway"
-    "swaylock"
-  ];
+  xdg.configFile = mkCfgLink [ "swaylock" ];
 
   # ignore .desktop
   ign.desktop = [ "zen-beta.desktop" ];
