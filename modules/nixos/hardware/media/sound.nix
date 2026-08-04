@@ -1,6 +1,5 @@
 {
   lib,
-  self,
   pkgs,
   config,
   ...
@@ -8,7 +7,6 @@
 
 let
   inherit (lib.modules) mkForce mkIf;
-  inherit (self.lib) isx86Linux;
 in
 
 {
@@ -18,14 +16,10 @@ in
         enable = true;
 
         audio.enable = true;
-        pulse.enable = true;
+        alsa.enable = true;
         jack.enable = true;
+        pulse.enable = true;
         wireplumber.enable = true;
-
-        alsa = {
-          enable = true;
-          support32Bit = isx86Linux pkgs;
-        };
 
         extraLadspaPackages = with pkgs; [ rnnoise-plugin ];
 
