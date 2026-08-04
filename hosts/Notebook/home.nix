@@ -22,7 +22,7 @@ in
   programs = {
     # chromium.enable = true;
     firefox.enable = true;
-    foot.enable = true;
+    # foot.enable = true;
     kitty.enable = true;
     qutebrowser.enable = true;
     sway.enable = true;
@@ -41,7 +41,6 @@ in
 
   home.packages = with pkgs; [
     brightnessctl
-    foot
     simple-scan
     swaybg
   ];
