@@ -1,6 +1,6 @@
 {
   lib,
-  pkgs,
+  self,
   name,
   config,
   ...
@@ -18,6 +18,7 @@ let
     ;
 
   inherit (config.services) tailscale;
+  inherit (self.lib) mkSecret;
 
   cfg = config.pixel.system.networking.tailscale;
 in
@@ -48,6 +49,8 @@ in
   };
 
   config = mkIf cfg.enable {
+    sops.secrets.tailscale = mkSecret { file = "tailscale"; };
+
     networking.firewall = {
       trustedInterfaces = [ "${tailscale.interfaceName}" ];
       checkReversePath = "loose";
@@ -58,6 +61,7 @@ in
       permitCertUid = "root";
       openFirewall = true;
       useRoutingFeatures = if cfg.mode == "server" then "both" else "client";
+      authKeyFile = config.sops.secrets.tailscale.path;
       extraUpFlags = [
         "--operator=${name}"
       ]
@@ -65,17 +69,6 @@ in
       ++ lib.optional (cfg.mode == "client") "--accept-routes=true"
       ++ lib.optional (cfg.mode == "server") "--advertise-exit-node"
       ++ lib.optional (cfg.mode == "server" && cfg.lan != [ ]) "--advertise-routes=${concatStringsSep "," cfg.lan}";
-    };
-
-    systemd.services.tailscale-operator = {
-      after = [ "tailscaled.service" ];
-      wants = [ "tailscaled.service" ];
-      wantedBy = [ "multi-user.target" ];
-      serviceConfig = {
-        Type = "oneshot";
-        ExecStart = "${lib.getExe pkgs.tailscale} set --operator=${name}";
-        RemainAfterExit = true;
-      };
     };
   };
 }
