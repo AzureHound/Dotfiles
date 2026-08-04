@@ -47,7 +47,6 @@ in
     mkpkg.cbonsai
     chafa
     circumflex
-    concord-tui
     croc
     # dipc
     duf

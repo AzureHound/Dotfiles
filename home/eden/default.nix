@@ -8,6 +8,7 @@
     ./cava.nix
     ./chromium.nix
     ./direnv.nix
+    ./discord.nix
     ./espanso.nix
     ./eza.nix
     ./fastfetch.nix
