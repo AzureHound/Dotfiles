@@ -82,10 +82,6 @@ in
                   label = "󰂯";
                   command = "hyprctl dispatch exec pypr toggle bluetui ; swaync-client -cp";
                 }
-                {
-                  label = "󰏘";
-                  command = "hyprctl dispatch exec nwg-look ; swaync-client -cp";
-                }
               ];
             };
             title = {

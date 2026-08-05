@@ -28,7 +28,7 @@ hl.window_rule({ match = { class = center_float_large }, size = "(monitor_w*0.7)
 -- Floats
 hl.window_rule({
   match = {
-    title = "branchdialog|confirm|confirmreset|dialog|download|error|file_progress|splash|notification|nwg-look",
+    title = "branchdialog|confirm|confirmreset|dialog|download|error|file_progress|splash|notification",
   },
   float = true,
 })
