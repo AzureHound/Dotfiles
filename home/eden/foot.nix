@@ -6,7 +6,7 @@
 
     settings = {
       main = {
-        font = "JetBrainsMono Nerd Font Mono:size=12.9, Noto Color Emoji:size=12.9";
+        font = "JetBrainsMono Nerd Font:size=12.9, Noto Color Emoji:size=12.9";
         # font = "Maple Mono:size=13, Noto Color Emoji:size=13";
         # font-size-adjustment = 0.5;
 
@@ -18,7 +18,7 @@
         # selection-target = "clipboard";
         bold-text-in-bright = "palette-based";
         box-drawings-uses-font-glyphs = "no";
-        dpi-aware = "no";
+        dpi-aware = "yes";
       };
 
       cursor = {
