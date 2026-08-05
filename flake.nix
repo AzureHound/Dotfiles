@@ -28,7 +28,7 @@
     };
 
     sops = {
-      url = "github:Mic92/sops-nix/pull/779/merge";
+      url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
