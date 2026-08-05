@@ -8,87 +8,136 @@
     # http://web.archive.org/web/20250806225139/https://nix.dev/manual/nix/2.28/protocols/tarball-fetcher#lockable-http-tarball-protocol
     nixpkgs.url = "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.zst";
 
-    # nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    # nixos-hardware = {
+    #   type = "github";
+    #   owner = "NixOS";
+    #   repo = "nixos-hardware";
+    #   ref = "master";
+    # };
 
-    nixos-raspberrypi.url = "github:nvmd/nixos-raspberrypi/main";
+    # nixos-raspberrypi = {
+    #   type = "github";
+    #   owner = "nvmd";
+    #   repo = "nixos-raspberrypi";
+    #   ref = "main";
+    # };
 
     home-manager = {
-      url = "github:nix-community/home-manager";
+      type = "github";
+      owner = "nix-community";
+      repo = "home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     autoaspm = {
-      url = "git+https://git.notthebe.ee/notthebee/AutoASPM";
+      type = "git";
+      url = "https://git.notthebe.ee/notthebee/AutoASPM";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     disko = {
-      url = "github:nix-community/disko";
+      type = "github";
+      owner = "nix-community";
+      repo = "disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     sops = {
-      url = "github:Mic92/sops-nix";
+      type = "github";
+      owner = "Mic92";
+      repo = "sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     darwin = {
-      url = "github:nix-darwin/nix-darwin/master";
+      type = "github";
+      owner = "nix-darwin";
+      repo = "nix-darwin";
+      ref = "master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     homebrew = {
-      url = "github:zhaofengli/nix-homebrew";
+      type = "github";
+      owner = "zhaofengli";
+      repo = "nix-homebrew";
       inputs.brew-src.follows = "";
     };
 
     nur = {
-      url = "github:nix-community/NUR";
+      type = "github";
+      owner = "nix-community";
+      repo = "NUR";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     nixvim = {
-      url = "github:nix-community/nixvim";
+      type = "github";
+      owner = "nix-community";
+      repo = "nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     spicetify = {
-      url = "github:Gerg-L/spicetify-nix";
+      type = "github";
+      owner = "Gerg-L";
+      repo = "spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     zen-browser = {
-      url = "github:0xc000022070/zen-browser-flake";
+      type = "github";
+      owner = "0xc000022070";
+      repo = "zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
 
     millennium = {
-      url = "github:re1n0/nixos-millennium";
+      type = "github";
+      owner = "re1n0";
+      repo = "nixos-millennium";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixbot = {
-      url = "github:Mic92/nixbot";
-      inputs.nixpkgs.follows = "nixpkgs";
+    hyprland = {
+      type = "github";
+      owner = "hyprwm";
+      repo = "Hyprland";
     };
 
-    hyprland.url = "github:hyprwm/Hyprland";
     hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
+      type = "github";
+      owner = "hyprwm";
+      repo = "hyprland-plugins";
       inputs.hyprland.follows = "hyprland";
     };
 
+    # nixbot = {
+    #   type = "github";
+    #   owner = "Mic92";
+    #   repo = "nixbot";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+
     apple-fonts = {
-      url = "github:Lyndeno/apple-fonts.nix";
+      type = "github";
+      owner = "Lyndeno";
+      repo = "apple-fonts.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
     catppuccin = {
-      url = "github:catppuccin/nix";
+      type = "github";
+      owner = "catppuccin";
+      repo = "nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    pi-catppuccin.url = "github:otahontas/pi-coding-agent-catppuccin";
+    pi-catppuccin = {
+      type = "github";
+      owner = "otahontas";
+      repo = "pi-coding-agent-catppuccin";
+    };
   };
 }
