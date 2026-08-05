@@ -23,7 +23,7 @@ in
     # chromium.enable = true;
     firefox.enable = true;
     foot.enable = true;
-    kitty.enable = true;
+    # kitty.enable = true;
     qutebrowser.enable = true;
     sway.enable = true;
     thunderbird.enable = true;
