@@ -6,9 +6,9 @@ let
 in
 
 {
-  options.pixel.profiles.device.webcam = mkEnableOption "webcam";
+  options.pixel.device.webcam = mkEnableOption "webcam";
 
-  config = mkIf config.pixel.profiles.device.webcam {
+  config = mkIf config.pixel.device.webcam {
     boot = {
       kernelModules = [ "v4l2loopback" ];
 

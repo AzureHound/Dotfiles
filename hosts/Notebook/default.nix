@@ -30,12 +30,12 @@ in
     device = {
       cpu = "intel";
       gpu = "intel";
-
       capabilities = {
         bluetooth = true;
         tpm = true;
         # yubikey = true;
       };
+      webcam = true;
     };
 
     system = {
