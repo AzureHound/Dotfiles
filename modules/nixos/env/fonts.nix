@@ -1,14 +1,11 @@
 {
-  fonts = {
-    fontconfig = {
-      enable = true;
-      hinting = {
-        enable = true;
-        style = "slight";
-      };
-      antialias = true;
-    };
+  fonts.fontconfig = {
+    enable = true;
 
-    fontDir.decompressFonts = true;
+    antialias = true;
+    hinting = {
+      enable = true;
+      style = "slight";
+    };
   };
 }
