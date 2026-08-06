@@ -82,18 +82,19 @@ in
             MANGOHUD = "1";
           };
 
-          extraPkgs = pkgs': with pkgs'; [
-            keyutils
-            libxcursor
-            libxi
-            libxinerama
-            libxscrnsaver
-            libkrb5
-            libpng
-            libpulseaudio
-            libvorbis
-            stdenv.cc.cc.lib
-          ];
+          extraPkgs =
+            pkgs': with pkgs'; [
+              keyutils
+              libxcursor
+              libxi
+              libxinerama
+              libxscrnsaver
+              libkrb5
+              libpng
+              libpulseaudio
+              libvorbis
+              stdenv.cc.cc.lib
+            ];
         };
 
         extraPackages = with pkgs; [
