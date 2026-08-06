@@ -23,6 +23,7 @@ in
         "2620:fe::9#dns.quad9.net"
       ];
       DNSOverTLS = "yes";
+      LLMNR = "false";
     };
   };
 
