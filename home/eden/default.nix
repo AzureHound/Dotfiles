@@ -51,6 +51,7 @@
     ./nix-your-shell.nix
     ./nixvim
     ./npm.nix
+    ./nvibrant.nix
     ./obs.nix
     ./ollama.nix
     ./oh-my-posh.nix
