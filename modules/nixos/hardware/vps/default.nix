@@ -2,7 +2,7 @@
   imports = [
     ./hetzner
     # ./hostinger.nix
-    ./oracle.nix
+    ./oracle
     ./overrides.nix
   ];
 }

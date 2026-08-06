@@ -43,6 +43,8 @@ in
       dhcpcd.enable = mkForce false;
       usePredictableInterfaceNames = mkForce false;
 
+      networkmanager.enable = mkForce false;
+
       interfaces = {
         eth0 = {
           ipv4 = {
