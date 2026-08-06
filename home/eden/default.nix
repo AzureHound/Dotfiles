@@ -49,7 +49,7 @@
     ./nix-your-shell.nix
     ./nixvim
     ./npm.nix
-    ./obs-studio.nix
+    ./obs.nix
     ./ollama.nix
     ./oh-my-posh.nix
     ./opencode.nix
