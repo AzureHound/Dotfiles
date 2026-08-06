@@ -10,6 +10,7 @@
     ./chromium.nix
     ./direnv.nix
     ./discord.nix
+    # ./editorconfig.nix
     ./espanso.nix
     ./eza.nix
     ./fastfetch.nix
