@@ -20,7 +20,6 @@ in
     moonlight = mkOption {
       inherit (settingsFormat) type;
       default = { };
-      description = "Settings for Moonlight";
     };
   };
 
