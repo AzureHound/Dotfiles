@@ -17,6 +17,9 @@ in
 {
   config = mkIf (config.pixel.profiles.graphical.enable && pkgs.stdenv.hostPlatform.isLinux) {
     dconf.settings = {
+      "org/gnome/desktop/interface" = {
+        color-scheme = "prefer-dark";
+      };
       "org/gnome/nautilus/preferences" = {
         show-hidden-files = true;
       };
