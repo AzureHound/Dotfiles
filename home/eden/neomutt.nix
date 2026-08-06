@@ -110,8 +110,8 @@ in
         gmail = {
           primary = true;
           flavor = "gmail.com";
-          address = "eyesashik@gmail.com";
-          userName = "eyesashik@gmail.com";
+          address = "eyesashik" + "@" + "gmail" + "." + "com";
+          userName = "eyesashik" + "@" + "gmail" + "." + "com";
           realName = "Ashik";
           passwordCommand = [
             "cat"
@@ -137,8 +137,8 @@ in
         };
 
         icloud = {
-          address = "eyesashik@icloud.com";
-          userName = "eyesashik@icloud.com";
+          address = "eyesashik" + "@" + "icloud" + "." + "com";
+          userName = "eyesashik" + "@" + "icloud" + "." + "com";
           realName = "Ashik";
           passwordCommand = [
             "cat"
