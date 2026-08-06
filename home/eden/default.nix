@@ -46,7 +46,7 @@
     ./mise.nix
     ./mpd.nix
     ./mpv.nix
-    # ./mpvpaper.nix
+    ./mpvpaper.nix
     ./neomutt.nix
     ./nix-your-shell.nix
     ./nixvim
