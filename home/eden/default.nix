@@ -7,6 +7,7 @@
     ./bat.nix
     ./batsignal.nix
     ./btop.nix
+    ./caffeine.nix
     ./cava.nix
     ./chromium.nix
     ./direnv.nix

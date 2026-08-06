@@ -42,7 +42,7 @@ hl.bind(meta .. " + " .. hyper .. " + P", performance)
 hl.bind(meta .. " + " .. hyper .. " + ESCAPE", hl.dsp.exec_cmd("wl-freeze -a -s"))
 hl.bind(meta .. " + ALT + BACKSPACE", hl.dsp.window.set_prop({ prop = "opaque", value = "toggle" }))
 hl.bind(meta .. " + ALT + SHIFT + BACKSPACE", hl.dsp.exec_cmd(scripts .. "/gaps"))
-hl.bind(meta .. " + ALT + 0", hl.dsp.exec_cmd(scripts .. "/caffeine"))
+hl.bind(meta .. " + ALT + 0", hl.dsp.exec_cmd(bin .. "/caffeine"))
 hl.bind(meta .. " + Q", kill)
 hl.bind(meta .. " + " .. hyper .. " + R", hl.dsp.exec_cmd("hyprctl reload"))
 hl.bind(hyper .. " + CTRL + DELETE", hl.dsp.exit()) -- Kill Hyprland

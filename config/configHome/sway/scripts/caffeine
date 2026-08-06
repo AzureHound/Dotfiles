@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-if systemctl --user is-active --quiet swayidle.service; then
-  systemctl --user stop swayidle.service
-  notify-send "Caffeinated"
-else
-  systemctl --user start swayidle.service
-  notify-send "DeCaffeinated"
-fi
