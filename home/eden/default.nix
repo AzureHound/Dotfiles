@@ -2,6 +2,7 @@
   imports = [
     ./pkgs.nix
 
+    ./aria2.nix
     ./atuin.nix
     ./bat.nix
     ./btop.nix
@@ -30,6 +31,7 @@
     ./jelly.nix
     ./jj.nix
     ./jrnl.nix
+    # ./keepassxc.nix
     ./kitty.nix
     ./lazydocker.nix
     ./lazygit.nix
@@ -60,6 +62,7 @@
     ./rnnoise.nix
     ./rofi.nix
     ./satty.nix
+    ./screen.nix
     ./shell
     ./sops.nix
     ./spotify.nix

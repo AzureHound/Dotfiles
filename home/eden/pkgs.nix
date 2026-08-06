@@ -40,7 +40,6 @@ in
   ]
 
   ++ optionals cfg.graphical.enable [
-    aria2
     asciinema
     # basalt
     calcure
