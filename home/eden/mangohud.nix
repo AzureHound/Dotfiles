@@ -1,8 +1,8 @@
-{ pkgs, config, ... }:
+{ pkgs, osConfig, ... }:
 
 {
   programs.mangohud = {
-    enable = (config.programs ? steam) && pkgs.stdenv.hostPlatform.isLinux;
+    enable = osConfig.pixel.profiles.gaming.enable && pkgs.stdenv.hostPlatform.isLinux;
 
     settings = {
       legacy_layout = false;

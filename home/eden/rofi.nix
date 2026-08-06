@@ -2,12 +2,15 @@
   lib,
   pkgs,
   config,
+  osConfig,
   mkCfgLink,
   ...
 }:
 
 let
-  inherit (lib.modules) mkIf;
+  inherit (lib) mkIf optional;
+
+  gaming = osConfig.pixel.profiles.gaming.enable;
 in
 
 {
@@ -15,7 +18,7 @@ in
     programs.rofi = {
       enable = pkgs.stdenv.hostPlatform.isLinux;
       package = pkgs.rofi;
-      plugins = with pkgs; [ rofi-games ];
+      plugins = optional gaming pkgs.rofi-games;
 
       font = "JetBrainsMono Nerd Font 10";
       terminal = "rofi-sensible-terminal";
@@ -117,9 +120,7 @@ in
         "theme"
         "scripts"
       ]
-      ++ [
-        "rofi-games"
-      ]
+      ++ optional gaming "rofi-games"
     );
 
     # Theme

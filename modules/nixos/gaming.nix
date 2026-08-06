@@ -14,11 +14,11 @@ let
 in
 
 {
-  imports = [ inputs.millennium.nixosModules.default ];
-
   options.pixel.profiles.gaming.enable = mkEnableOption "Gaming profile";
 
   config = mkIf cfg.enable {
+    nixpkgs.overlays = [ inputs.millennium.overlays.default ];
+
     hardware.xone.enable = true; # Xbox Controller
 
     # Perf Tweaks

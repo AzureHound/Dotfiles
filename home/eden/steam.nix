@@ -2,21 +2,32 @@
   lib,
   pkgs,
   inputs,
+  osConfig,
   ...
 }:
 
+let
+  gaming = osConfig.pixel.profiles.gaming.enable;
+in
+
 {
-  imports = [ inputs.millennium.homeManagerModules.default ];
+  imports = lib.optionals gaming [ inputs.millennium.homeManagerModules.default ];
 
-  programs.steam = lib.mkIf pkgs.stdenv.hostPlatform.isLinux {
-    theme = pkgs.millenniumThemes.adwaita;
-    millenniumConfig = {
-      themes.conditions."adwaita-for-steam" = {
-        "Color theme" = "catppuccin-macchiato";
-        "Hide What's New shelf" = "yes";
-      };
-    };
+  config =
+    if gaming then
+      {
+        programs.steam = {
+          theme = pkgs.millenniumThemes.adwaita;
+          millenniumConfig = {
+            themes.conditions."adwaita-for-steam" = {
+              "Color theme" = "catppuccin-macchiato";
+              "Hide What's New shelf" = "yes";
+            };
+          };
 
-    # plugins = with pkgs.millenniumPlugins; [ global-launch-options ];
-  };
+          # plugins = with pkgs.millenniumPlugins; [ global-launch-options ];
+        };
+      }
+    else
+      { };
 }
