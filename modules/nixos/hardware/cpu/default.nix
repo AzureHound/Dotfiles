@@ -15,9 +15,7 @@ in
     type = types.nullOr (
       types.enum [
         "amd"
-        "vm-amd"
         "intel"
-        "vm-intel"
       ]
     );
     default = null;

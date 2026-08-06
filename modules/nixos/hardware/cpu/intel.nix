@@ -7,7 +7,7 @@ let
 in
 
 {
-  config = mkIf (device.cpu == "intel" || device.cpu == "vm-intel") {
+  config = mkIf (device.cpu == "intel") {
     hardware.cpu.intel.updateMicrocode = true;
 
     boot = {
