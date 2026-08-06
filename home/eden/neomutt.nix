@@ -101,7 +101,6 @@ in
     services.mbsync = {
       enable = true;
       frequency = "0/6:00:00";
-      configFile = "${config.xdg.configHome}/isync/isyncrc";
     };
 
     accounts.email = {
@@ -178,7 +177,7 @@ in
 
     home = {
       sessionVariables = {
-        MBSYNCRC = "${config.xdg.configHome}/isync/isyncrc";
+        MBSYNCRC = "${config.xdg.configHome}/isync/mbsyncrc";
         NOTMUCH_CONFIG = "${config.xdg.configHome}/notmuch/default/config";
       };
 
@@ -197,7 +196,7 @@ in
         ]
       )
       // {
-        "isyncrc".target = "isync/isyncrc";
+        "isyncrc".target = "isync/mbsyncrc";
       };
 
     sops.secrets = {
