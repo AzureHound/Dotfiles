@@ -1,13 +1,8 @@
-{
-  lib,
-  pkgs,
-  config,
-  ...
-}:
+{ pkgs, config, ... }:
 
 {
   programs.zsh = {
-    dotDir = "${lib.removePrefix "${config.home.homeDirectory}/" config.xdg.configHome}/zsh";
+    dotDir = "${config.xdg.configHome}/zsh";
 
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
