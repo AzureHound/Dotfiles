@@ -127,12 +127,13 @@ hl.define_submap("links", function()
 end)
 
 -- Scratchpads
-hl.bind(meta .. " + T",         hl.dsp.exec_cmd("pypr toggle tty-clock"))
-hl.bind(meta .. " + V",         hl.dsp.exec_cmd("pypr toggle wiremix"))
-hl.bind(meta .. " + BACKSLASH", hl.dsp.exec_cmd("pypr toggle term"))
-hl.bind(hyper .. " + CTRL + N", hl.dsp.exec_cmd("pypr toggle quick-note"))
-hl.bind(hyper .. " + CTRL + B", hl.dsp.exec_cmd("pypr toggle bluetui"))
 hl.bind(hyper .. " + CTRL + W", hl.dsp.exec_cmd("pypr toggle impala"))
+hl.bind(hyper .. " + CTRL + B", hl.dsp.exec_cmd("pypr toggle bluetui"))
+hl.bind(meta .. " + V",         hl.dsp.exec_cmd("pypr toggle wiremix"))
+
+hl.bind(meta .. " + BACKSLASH", hl.dsp.exec_cmd("pypr toggle term"))
+hl.bind(meta .. " + T",         hl.dsp.exec_cmd("pypr toggle tty-clock"))
+hl.bind(hyper .. " + CTRL + N", hl.dsp.exec_cmd("pypr toggle quick-note"))
 
 hl.bind(hyper .. " + B", hl.dsp.exec_cmd("pypr toggle btop"))
 hl.bind(hyper .. " + D", hl.dsp.exec_cmd("pypr toggle lazydocker"))
@@ -149,6 +150,7 @@ hl.bind(hyper .. " + T", hl.dsp.exec_cmd("pypr toggle todo"))
 hl.bind(hyper .. " + W", hl.dsp.exec_cmd("pypr toggle weather"))
 hl.bind(hyper .. " + V", hl.dsp.exec_cmd("pypr toggle vim"))
 hl.bind(hyper .. " + X", hl.dsp.exec_cmd("pypr toggle tt"))
+hl.bind(hyper .. " + Y", hl.dsp.exec_cmd("pypr toggle yazi"))
 
 -- Focusing
 -- hl.bind(meta .. " + TAB", hl.dsp.focus({ last = true }))
