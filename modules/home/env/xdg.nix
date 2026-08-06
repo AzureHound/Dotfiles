@@ -161,6 +161,8 @@ in
       };
     };
 
+    mime.enable = isLinux && !config.pixel.profiles.headless.enable;
+
     mimeApps = {
       enable = isLinux;
       associations.added = associations;
