@@ -9,6 +9,8 @@ in
   options.pixel.device.webcam = mkEnableOption "webcam";
 
   config = mkIf config.pixel.device.webcam {
+    pixel.system.security.fixWebcam = true;
+
     boot = {
       kernelModules = [ "v4l2loopback" ];
 
