@@ -5,12 +5,16 @@ shift
 cmd="$*"
 
 if swaymsg -t get_tree | jq -e '.. | select(.app_id?=="'$name'" and .scratchpad_state?=="fresh")' >/dev/null; then
-  swaymsg "[app_id=\"$name\"] scratchpad show"
+  swaymsg "[app_id=\"$name\"] opacity set 0, scratchpad show"
+  sleep 0.1
+  swaymsg "[app_id=\"$name\"] move position center, opacity set 1"
 else
   swaymsg "[floating] move scratchpad" 2>/dev/null
 
   if swaymsg -t get_tree | grep -qP "\"app_id\":\s*\"${name}\""; then
-    swaymsg "[app_id=\"$name\"] scratchpad show"
+    swaymsg "[app_id=\"$name\"] opacity set 0, scratchpad show"
+    sleep 0.1
+    swaymsg "[app_id=\"$name\"] move position center, opacity set 1"
   else
     first_word=$(echo $cmd | awk '{print $1}')
     rest=$(echo $cmd | cut -d' ' -f2-)
@@ -20,7 +24,9 @@ else
       $first_word --app-id="$name" $rest &
     fi
 
-    sleep 0.5
-    swaymsg "[app_id=\"$name\"] scratchpad show"
+    sleep 0.4
+    swaymsg "[app_id=\"$name\"] opacity set 0, scratchpad show"
+    sleep 0.1
+    swaymsg "[app_id=\"$name\"] move position center, opacity set 1"
   fi
 fi
