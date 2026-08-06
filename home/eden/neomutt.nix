@@ -98,9 +98,13 @@ in
       notmuch.enable = true;
     };
 
-    services.mbsync = {
-      enable = true;
-      frequency = "0/6:00:00";
+    services = {
+      imapnotify.enable = true;
+
+      mbsync = {
+        enable = true;
+        # frequency = "0/6:00:00";
+      };
     };
 
     accounts.email = {
@@ -133,6 +137,12 @@ in
             enable = true;
             create = "both";
             expunge = "both";
+          };
+          imapnotify = {
+            enable = true;
+            boxes = [ "Inbox" ];
+            onNotify = "${pkgs.isync}/bin/mbsync gmail";
+            onNotifyPost = "${pkgs.notmuch}/bin/notmuch new";
           };
         };
 
@@ -170,6 +180,12 @@ in
             host = "smtp.mail.me.com";
             port = 587;
             tls.useStartTls = true;
+          };
+          imapnotify = {
+            enable = true;
+            boxes = [ "Inbox" ];
+            onNotify = "${pkgs.isync}/bin/mbsync icloud";
+            onNotifyPost = "${pkgs.notmuch}/bin/notmuch new";
           };
         };
       };
