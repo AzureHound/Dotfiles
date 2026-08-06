@@ -5,6 +5,7 @@
     ./aria2.nix
     ./atuin.nix
     ./bat.nix
+    ./batsignal.nix
     ./btop.nix
     ./cava.nix
     ./chromium.nix
