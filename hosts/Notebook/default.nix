@@ -94,20 +94,14 @@ in
     };
   };
 
-  security.pam.services = {
-    login.fprintAuth = true;
-    sudo.fprintAuth = true;
+  # security.pam.services = {
+  #   login.fprintAuth = true;
+  #   sudo.fprintAuth = true;
+  #
+  #   swaylock.fprintAuth = true;
+  # };
 
-    swaylock.fprintAuth = true;
-  };
-
-  services.fprintd = {
-    enable = true;
-    tod = {
-      enable = true;
-      driver = pkgs.libfprint-2-tod1-elan;
-    };
-  };
+  services.fprintd.enable = false;
 
   systemd.tmpfiles.settings."ideapad-conservation-mode" = {
     "/sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode".w = {
