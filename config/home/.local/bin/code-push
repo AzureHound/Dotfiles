@@ -44,23 +44,23 @@ git gc --auto
 # Codeberg
 if remote_exists "codeberg"; then
   echo -e "\n${OVERLAY2}Codeberg ${BLUE} ${RESET}\n"
-  git push codeberg $FORCE
+  timeout 30s git push codeberg $FORCE
 fi
 
 # Forgejo
 if remote_exists "forgejo"; then
   echo -e "\n${OVERLAY2}Forgejo ${RED} ${RESET}\n"
-  git push forgejo $FORCE
+  timeout 30s git push forgejo $FORCE
 fi
 
 # GitHUB
 if remote_exists "github"; then
   echo -e "\n${OVERLAY2}GitHUB ${SUBTEXT1} ${RESET}\n"
-  git push github $FORCE
+  timeout 30s git push github $FORCE
 fi
 
 # GitLAB
 if remote_exists "gitlab"; then
   echo -e "\n${OVERLAY2}GitLAB ${PEACH} ${RESET}\n"
-  git push gitlab $FORCE
+  timeout 30s git push gitlab $FORCE
 fi
