@@ -43,7 +43,6 @@ in
         loader = "systemd-boot";
         silent = true;
       };
-
       bluetooth.enable = true;
       networking.tailscale.enable = true;
       printing.enable = true;

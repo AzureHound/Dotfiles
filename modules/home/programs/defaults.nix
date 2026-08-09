@@ -31,8 +31,8 @@ in
 
     editor = {
       type = enum [
-        "nvim"
         "codium"
+        "nvim"
       ];
       default = "nvim";
     };
