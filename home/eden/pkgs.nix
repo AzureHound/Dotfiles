@@ -90,7 +90,7 @@ in
     freerdp
     gnome-calculator
     # gnome-connections
-    gnome-disk-utility
+    # gnome-disk-utility
     # gnome-firmware
     # gnome-obfuscate
     grim
