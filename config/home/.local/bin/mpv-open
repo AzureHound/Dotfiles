@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-mpv "$@" &
-MPV_PID=$!
-sleep 0.9
-swaymsg "[app_id=\"mpv\"] border pixel 2; [app_id=\"mpv\"] resize set 1200 700; [app_id=\"mpv\"] move position center"
-wait $MPV_PID
