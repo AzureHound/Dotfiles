@@ -46,6 +46,7 @@ in
       bluetooth.enable = true;
       networking.tailscale.enable = true;
       printing.enable = true;
+      security.binaries.enable = true;
     };
   };
 
