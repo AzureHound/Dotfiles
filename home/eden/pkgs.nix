@@ -108,7 +108,6 @@ in
     mkpkg.mechsim
     nautilus
     nautilus-python
-    nufraw-thumbnailer
     packet
     # pika-backup
     # pipeline
