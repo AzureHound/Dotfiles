@@ -14,6 +14,7 @@
     ./discord.nix
     ./editorconfig.nix
     ./espanso.nix
+    ./eviv2-thumbnailer.nix
     ./eza.nix
     ./fastfetch.nix
     ./fd.nix
