@@ -1,5 +1,4 @@
 {
-  lib,
   pkgs,
   config,
   inputs,
@@ -8,9 +7,6 @@
 }:
 
 let
-  inherit (lib.attrsets) optionalAttrs;
-  inherit (pkgs.stdenv.hostPlatform) isLinux;
-
   spicePkgs = inputs'.spicetify.legacyPackages;
 in
 
@@ -35,9 +31,5 @@ in
       shuffle
       volumePercentage
     ];
-  }
-  // optionalAttrs isLinux {
-    wayland = true;
-    windowManagerPatch = true;
   };
 }
