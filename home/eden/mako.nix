@@ -12,7 +12,7 @@
 
       background-color = "#24273a";
       text-color = "#cad3f5";
-      border-color = "#b7bdf8";
+      border-color = "#91d7e3";
       progress-color = "over #363a4f";
 
       "urgency=high" = {
