@@ -52,9 +52,9 @@
       };
 
       git = {
-        pagers = lib.lists.singleton {
+        diffRenderers = lib.lists.singleton {
           colorArg = "always";
-          pager = lib.strings.escapeShellArgs [
+          command = lib.strings.escapeShellArgs [
             "delta"
             "--paging=never"
             "--dark"
