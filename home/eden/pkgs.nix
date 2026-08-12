@@ -18,6 +18,7 @@ in
 
   ++ optionals cfg.workstation.enable [
     age
+    bitwarden-cli
     curl
     file
     gitleaks
