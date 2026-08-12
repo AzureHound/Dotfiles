@@ -25,4 +25,7 @@
       };
     };
   };
+
+  # Theme
+  catppuccin.mako.enable = false;
 }
