@@ -35,7 +35,6 @@ in
       # pnpm
       # poetry
       # postgresql
-      # posting
       # scc
       # sqlite
       # tldx

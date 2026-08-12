@@ -59,6 +59,7 @@
     ./pass.nix
     ./pi.nix
     ./pointer.nix
+    ./posting.nix
     # ./qt.nix
     ./qutebrowser.nix
     ./rg.nix
