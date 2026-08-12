@@ -41,6 +41,7 @@ in
 
   home.packages = with pkgs; [
     brightnessctl
+    # libreoffice-fresh
     simple-scan
     swaybg
   ];

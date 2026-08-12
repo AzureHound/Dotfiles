@@ -102,7 +102,6 @@ in
     # impression
     # insomnia
     libnotify
-    # libreoffice-fresh
     lowfi
     # lsp-plugins
     # minivmac
