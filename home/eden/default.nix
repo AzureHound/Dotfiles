@@ -86,6 +86,7 @@
     ./vim.nix
     ./vivid.nix
     ./w3m.nix
+    ./wiremix.nix
     ./wlsunset.nix
     ./wob.nix
     ./yazi.nix

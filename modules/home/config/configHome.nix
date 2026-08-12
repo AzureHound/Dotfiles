@@ -33,7 +33,7 @@ in
           "ticker"
         ]
 
-        ++ optionals isLinux [ "wiremix" ]
+        ++ optionals isLinux [ ]
       );
     })
 

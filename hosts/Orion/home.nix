@@ -61,7 +61,6 @@
     # vkbasalt
     # vscodium
     # waybar
-    wiremix
     wl-freeze
 
     ## games
