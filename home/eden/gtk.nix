@@ -36,16 +36,14 @@ in
 
       colorScheme = "dark";
       theme = {
-        name = "Catppuccin-GTK-Blue-Dark-Macchiato";
+        name = "Catppuccin-GTK-Macchiato-Blue-Dark-MB";
         package = pkgs.magnetic-catppuccin-gtk.override {
           accent = [ "blue" ];
-          shade = "dark";
+          # radius = if config.programs.sway.enable then 0 else null;
           tweaks = [
-            # "frappe"
             "macchiato"
             # "black"
-            # "float"
-            # "outline"
+            # "border"
             "macos"
           ];
         };
