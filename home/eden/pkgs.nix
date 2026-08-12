@@ -112,7 +112,7 @@ in
     # pika-backup
     # pipeline
     # plocate
-    pwvucontrol
+    # pwvucontrol
     raider
     # revanced-cli
     # rpi-imager
