@@ -1,5 +1,7 @@
 { config, ... }:
 
 {
-  services.autotiling.enable = config.programs.sway.enable;
+  services.autotiling = {
+    inherit (config.programs.sway) enable;
+  };
 }

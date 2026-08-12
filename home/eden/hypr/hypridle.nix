@@ -6,7 +6,7 @@ in
 
 {
   services.hypridle = {
-    enable = config.programs.hyprland.enable;
+    inherit (config.programs.hyprland) enable;
 
     settings = {
       # █ █  █▄█  █▀█  █▀█  █ █▀▄ █   █▀▀

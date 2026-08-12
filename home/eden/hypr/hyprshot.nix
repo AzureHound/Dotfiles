@@ -2,7 +2,7 @@
 
 {
   programs.hyprshot = {
-    enable = config.programs.hyprland.enable;
+    inherit (config.programs.hyprland) enable;
 
     saveLocation = "~/Pictures/screenshots";
   };

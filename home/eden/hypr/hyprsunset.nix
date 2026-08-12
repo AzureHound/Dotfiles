@@ -2,7 +2,7 @@
 
 {
   services.hyprsunset = {
-    enable = config.programs.hyprland.enable;
+    inherit (config.programs.hyprland) enable;
 
     settings = {
       # "max-gamma" = 150;

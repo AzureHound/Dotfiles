@@ -2,7 +2,7 @@
 
 {
   programs.hyprland-qt-support = {
-    enable = config.programs.hyprland.enable;
+    inherit (config.programs.hyprland) enable;
 
     settings = {
       theme = {
