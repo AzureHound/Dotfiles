@@ -17,5 +17,7 @@
     dotIcons.enable = false;
     gtk.enable = true;
     x11.enable = true;
+
+    sway.enable = config.programs.sway.enable;
   };
 }

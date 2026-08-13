@@ -8,6 +8,8 @@
 
 let
   inherit (lib.modules) mkIf;
+
+  cursor = config.home.pointerCursor;
 in
 
 {
@@ -26,7 +28,12 @@ in
       package = null;
 
       config = lib.mkForce null;
-      extraConfig = builtins.readFile (self + "/config/configHome/sway/config");
+
+      extraConfig = ''
+        seat * xcursor_theme ${cursor.name} ${toString cursor.size}
+
+        ${builtins.readFile (self + "/config/configHome/sway/config")}
+      '';
     };
 
     xdg.configFile = mkCfgLink (
