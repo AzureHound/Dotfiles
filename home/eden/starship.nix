@@ -62,6 +62,18 @@
       };
 
       custom = {
+        docker = {
+          style = "bold blue";
+          format = "[  $output]($style)";
+          command = "docker -v | awk '{print \"v\"$3}' | sed 's/,//' 2>/dev/null || true";
+          detect_files = [
+            "compose.yml"
+            "docker-compose.yml"
+            "docker-compose.yaml"
+            "Dockerfile"
+          ];
+        };
+
         giturl = {
           disabled = false;
           format = "$output  ";
@@ -90,18 +102,6 @@
             "--norc"
           ];
           when = "git rev-parse --is-inside-work-tree 2> /dev/null";
-        };
-
-        docker = {
-          style = "bold blue";
-          format = "[  $output]($style)";
-          command = "docker -v | awk '{print \"v\"$3}' | sed 's/,//' 2>/dev/null || true";
-          detect_files = [
-            "compose.yml"
-            "docker-compose.yml"
-            "docker-compose.yaml"
-            "Dockerfile"
-          ];
         };
 
         hypr = {
