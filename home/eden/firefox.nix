@@ -92,8 +92,8 @@ in
 
       search = {
         force = true;
-        default = "ddg";
-        privateDefault = "ddg";
+        default = "google";
+        privateDefault = "google";
 
         order = [
           "ddg"
@@ -101,6 +101,7 @@ in
         ];
 
         engines = {
+          "ddg".metaData.alias = "@d";
           "google".metaData.alias = "@g";
 
           "Nix Packages" = {
