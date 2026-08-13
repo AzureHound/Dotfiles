@@ -23,7 +23,7 @@ in
       # cargo
       # claude-code
       # clickgen
-      # deno
+      deno
       dig
       # gemini-cli
       # gh-copilot
