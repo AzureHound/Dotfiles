@@ -2,8 +2,8 @@
 
 if systemctl --user is-active --quiet caffeine.service; then
   systemctl --user stop caffeine.service
-  notify-send "Caffeinated"
+  notify-send "DeCaffeinated"
 else
   systemctl --user start caffeine.service
-  notify-send "DeCaffeinated"
+  notify-send "Caffeinated"
 fi
