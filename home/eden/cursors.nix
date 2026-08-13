@@ -18,6 +18,7 @@
     gtk.enable = true;
     x11.enable = true;
 
+    hyprcursor.enable = config.programs.hyprland.enable;
     sway.enable = config.programs.sway.enable;
   };
 }
