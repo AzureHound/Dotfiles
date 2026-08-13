@@ -10,6 +10,7 @@
     ./caffeine.nix
     ./cava.nix
     ./chromium.nix
+    ./cursors.nix
     ./direnv.nix
     ./discord.nix
     ./editorconfig.nix
@@ -59,7 +60,6 @@
     ./opencode.nix
     ./pass.nix
     ./pi.nix
-    ./pointer.nix
     ./posting.nix
     # ./qt.nix
     ./qutebrowser.nix
