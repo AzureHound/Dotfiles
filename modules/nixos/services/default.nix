@@ -1,6 +1,7 @@
 {
   imports = [
     ./arr.nix
+    ./atuin.nix
     # ./cachix.nix
     ./forgejo.nix
     ./homepage.nix
