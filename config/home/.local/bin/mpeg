@@ -67,7 +67,7 @@ process_file() {
       echo "$src -> $out"
     elif [[ "${ext,,}" == "png" ]]; then
       out="${out%.*}.jpg"
-      ffmpeg -y -loglevel error -i "$src" -q:v 2 "$out"
+      magick "$src" -quality 95 "$out"
       echo "$src -> $out"
     elif [[ "${ext,,}" =~ ^jpe?g$ ]]; then
       echo -e "\033[33mSkipping JPG: $src\033[0m"
