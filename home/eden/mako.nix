@@ -23,6 +23,10 @@
         default-timeout = 2000;
         group-by = "category";
       };
+
+      "category=caffeine" = {
+        format = "%b";
+      };
     };
   };
 

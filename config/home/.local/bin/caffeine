@@ -2,8 +2,8 @@
 
 if systemctl --user is-active --quiet caffeine.service; then
   systemctl --user stop caffeine.service
-  notify-send "DeCaffeinated"
+  notify-send -c caffeine "" "<span color='#c6a0f6'></span> DeCaffeinated"
 else
   systemctl --user start caffeine.service
-  notify-send "Caffeinated"
+  notify-send -c caffeine "" "<span color='#f0c6c6'>󰅶</span> Caffeinated"
 fi
