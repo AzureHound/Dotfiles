@@ -2,5 +2,22 @@
 
 set -e
 
-selection="$(cliphist list | rofi -dmenu -i -theme "$HOME/.config/rofi/scripts/clipboard/style.rasi")"
+cache_dir="/tmp/cliphist"
+mkdir -p "$cache_dir"
+
+selection="$(
+  cliphist list | while IFS= read -r line; do
+    if [[ "$line" == *"[[ binary data"* ]]; then
+      id="${line%%\t*}"
+      img="$cache_dir/$id.png"
+      [ ! -f "$img" ] && echo "$line" | cliphist decode >"$img"
+      echo -en "$line\x00icon\x1f$img\n"
+    else
+      echo -en "$line\n"
+    fi
+  done | rofi -dmenu -i -show-icons -theme "$HOME/.config/rofi/scripts/clipboard/style.rasi"
+)"
+
+[ -z "$selection" ] && exit 0
+
 cliphist decode <<<"$selection" | wl-copy
