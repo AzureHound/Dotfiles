@@ -92,7 +92,6 @@ in
     gnome-calculator
     # gnome-connections
     # gnome-disk-utility
-    # gnome-firmware
     # gnome-obfuscate
     grim
     # helvum
