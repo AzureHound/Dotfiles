@@ -3,9 +3,6 @@
 # █▀▀ ▀▄▀ █▀▀ █▀▀  █▀ █▀▀ █▀█ █ █ █ █▀▀ █▀▀ █▀
 # ██▄ █ █ ██▄ █▄▄  ▄█ ██▄ █▀▄ ▀▄▀ █ █▄▄ ██▄ ▄█
 
-# Audio
-# easyeffects --gapplication-service &
-
 # Display
 brightnessctl s 1067 &
 
@@ -14,8 +11,3 @@ brightnessctl s 1067 &
 
 # Clipboard
 rm "$HOME/.cache/cliphist/db" &
-
-# Screen Sharing & Portals
-# systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &
-# --no-startup-id dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway &
-# xwaylandvideobridge &

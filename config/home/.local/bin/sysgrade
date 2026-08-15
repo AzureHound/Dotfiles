@@ -31,9 +31,6 @@ RESET="\e[0m"
 
 start_time=$(date +%s)
 
-echo -e "\n${OVERLAY2}Zinit ${GREEN} ${RESET}\n"
-zsh -i -c 'zinit self-update && zinit update'
-
 echo -e "\n${OVERLAY2}Mise ${OVERLAY0} ${RESET}\n"
 mise upgrade
 
