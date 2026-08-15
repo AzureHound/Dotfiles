@@ -8,13 +8,6 @@
     # http://web.archive.org/web/20250806225139/https://nix.dev/manual/nix/2.28/protocols/tarball-fetcher#lockable-http-tarball-protocol
     nixpkgs.url = "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.zst";
 
-    # nixos-hardware = {
-    #   type = "github";
-    #   owner = "NixOS";
-    #   repo = "nixos-hardware";
-    #   ref = "master";
-    # };
-
     # nixos-raspberrypi = {
     #   type = "github";
     #   owner = "nvmd";
