@@ -29,38 +29,87 @@ MANTLE="\e[38;2;30;32;48m"       # #1e2030
 CRUST="\e[38;2;24;25;38m"        # #181926
 RESET="\e[0m"
 
-# Remote Check
+if [[ $# -eq 0 ]]; then
+  cmd="${GREEN}$(basename "$0")${RESET} ${BLUE}"
+  echo -e "${YELLOW}Usage:${RESET}"
+  echo -e "  ${cmd}init${RESET}            ${OVERLAY1}Initialize git remotes${RESET}"
+  echo -e "  ${cmd}push${RESET}            ${OVERLAY1}Push to all configured remotes${RESET}"
+  echo -e "  ${cmd}push --force${RESET}    ${OVERLAY1}Force push to all configured remotes${RESET}"
+  exit 0
+fi
+
+# Remote
 remote_exists() {
   git remote get-url "$1" &>/dev/null
 }
 
-# FORCE
-FORCE=""
-[[ "$1" == "--force" ]] && FORCE="--force"
+# Init
+if [[ "$1" == "init" ]]; then
+  folder="${PWD##*/}"
 
-# Objects Compression
-git gc --auto
+  for rem in $(git remote); do
+    url=$(git remote get-url "$rem")
+    if [[ "$url" == *"AzureHound"* ]]; then
+      if [[ "$url" == *"github.com"* && "$rem" != "github" ]]; then
+        git remote rename "$rem" github 2>/dev/null || true
+      elif [[ "$url" == *"codeberg.org"* && "$rem" != "codeberg" ]]; then
+        git remote rename "$rem" codeberg 2>/dev/null || true
+      elif [[ "$url" == *"forgejo"* && "$rem" != "forgejo" ]]; then
+        git remote rename "$rem" forgejo 2>/dev/null || true
+      elif [[ "$url" == *"gitlab.com"* && "$rem" != "gitlab" ]]; then
+        git remote rename "$rem" gitlab 2>/dev/null || true
+      fi
+    fi
+  done
 
-# Codeberg
-if remote_exists "codeberg"; then
-  echo -e "\n${OVERLAY2}Codeberg ${BLUE} ${RESET}\n"
-  timeout 30s git push codeberg $FORCE
+  for r in \
+    "codeberg git@codeberg.org:AzureHound/${folder}.git" \
+    "forgejo git@forgejo.eyeshome.duckdns.org:AzureHound/${folder}.git" \
+    "github git@github.com:AzureHound/${folder}.git" \
+    "gitlab git@gitlab.com:AzureHound/${folder}.git"; do
+    read -r name url <<<"$r"
+    git remote add "$name" "$url" 2>/dev/null || git remote set-url "$name" "$url"
+  done
+
+  branch=$(git branch --show-current 2>/dev/null)
+  if [[ -n "$branch" ]] && remote_exists "github"; then
+    git config "branch.${branch}.remote" github
+    git config "branch.${branch}.merge" "refs/heads/${branch}"
+  fi
+
+  echo -e "${GREEN}Remotes configured for project: ${folder}${RESET}"
+  exit 0
 fi
 
-# Forgejo
-if remote_exists "forgejo"; then
-  echo -e "\n${OVERLAY2}Forgejo ${RED} ${RESET}\n"
-  timeout 30s git push forgejo $FORCE
-fi
+if [[ "$1" == "push" ]]; then
+  # FORCE
+  FORCE=""
+  [[ "$2" == "--force" ]] && FORCE="--force"
 
-# GitHUB
-if remote_exists "github"; then
-  echo -e "\n${OVERLAY2}GitHUB ${SUBTEXT1} ${RESET}\n"
-  timeout 30s git push github $FORCE
-fi
+  # Objects Compression
+  git gc --auto
 
-# GitLAB
-if remote_exists "gitlab"; then
-  echo -e "\n${OVERLAY2}GitLAB ${PEACH} ${RESET}\n"
-  timeout 30s git push gitlab $FORCE
+  # Codeberg
+  if remote_exists "codeberg"; then
+    echo -e "\n${OVERLAY2}Codeberg ${BLUE} ${RESET}\n"
+    timeout 30s git push codeberg $FORCE
+  fi
+
+  # Forgejo
+  if remote_exists "forgejo"; then
+    echo -e "\n${OVERLAY2}Forgejo ${RED} ${RESET}\n"
+    timeout 30s git push forgejo $FORCE
+  fi
+
+  # GitHUB
+  if remote_exists "github"; then
+    echo -e "\n${OVERLAY2}GitHUB ${SUBTEXT1} ${RESET}\n"
+    timeout 30s git push github $FORCE
+  fi
+
+  # GitLAB
+  if remote_exists "gitlab"; then
+    echo -e "\n${OVERLAY2}GitLAB ${PEACH} ${RESET}\n"
+    timeout 30s git push gitlab $FORCE
+  fi
 fi
