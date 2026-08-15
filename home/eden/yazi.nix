@@ -18,6 +18,7 @@ in
 
       plugins = {
         inherit (pkgs.yaziPlugins)
+          compress
           convert
           full-border
           git
