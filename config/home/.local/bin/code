@@ -77,7 +77,7 @@ if [[ "$1" == "init" ]]; then
     git config "branch.${branch}.merge" "refs/heads/${branch}"
   fi
 
-  echo -e "${GREEN}Remotes configured for project: ${folder}${RESET}"
+  echo -e "${GREEN}Remotes configured for project: ${BLUE}${folder}${RESET}"
   exit 0
 fi
 
