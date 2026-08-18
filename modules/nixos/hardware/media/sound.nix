@@ -6,7 +6,7 @@
 }:
 
 let
-  inherit (lib.modules) mkForce mkIf;
+  inherit (lib.modules) mkIf mkForce;
 in
 
 {

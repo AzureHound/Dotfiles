@@ -1,7 +1,7 @@
 { lib, pkgs, ... }:
 
 let
-  inherit (lib) mkDefault;
+  inherit (lib.modules) mkDefault;
 in
 
 {

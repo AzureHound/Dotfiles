@@ -25,7 +25,7 @@ in
           thumbfast
         ]
 
-        ++ lib.optionals isLinux [
+        ++ lib.lists.optionals isLinux [
           mpris
         ];
 

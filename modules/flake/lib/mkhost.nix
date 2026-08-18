@@ -61,7 +61,7 @@ evalHost {
       nixpkgs.hostPlatform = system;
     }
   ]
-  ++ lib.optionals (class == "darwin") [
+  ++ lib.lists.optionals (class == "darwin") [
     {
       key = "dotfiles#nixpkgs-darwin";
       _file = "${__curPos.file}";

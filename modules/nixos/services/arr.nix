@@ -2,6 +2,7 @@
 
 let
   inherit (lib.attrsets) genAttrs;
+  inherit (lib.modules) mkIf;
   inherit (lib.options) mkEnableOption mkOption;
   inherit (lib) types;
 
@@ -39,7 +40,7 @@ in
     };
   };
 
-  config = lib.mkIf cfg.enable {
+  config = mkIf cfg.enable {
     pixel.services = {
       jellyfin.enable = true;
       # prowlarr.enable = true;

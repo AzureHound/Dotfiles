@@ -78,7 +78,7 @@ in
             # LANDING_PAGE = "/explore/repos";
 
             SSH_CREATE_AUTHORIZED_KEYS_FILE = true;
-            SSH_PORT = lib.head config.services.openssh.ports;
+            SSH_PORT = lib.lists.head config.services.openssh.ports;
 
             OFFLINE_MODE = false;
           };
@@ -166,7 +166,7 @@ in
 
       postgresql = {
         ensureDatabases = [ "forgejo" ];
-        ensureUsers = lib.singleton {
+        ensureUsers = lib.lists.singleton {
           name = "forgejo";
           ensureDBOwnership = true;
         };

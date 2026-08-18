@@ -7,8 +7,8 @@
 }:
 
 let
+  inherit (lib.modules) mkImageMediaOverride;
   inherit (lib.sources) cleanSource;
-  inherit (lib) mkImageMediaOverride;
 
   hostname = config.networking.hostName or "nixos";
   rev = self.shortRev or "dirty";

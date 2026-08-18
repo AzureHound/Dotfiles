@@ -7,7 +7,7 @@
 }:
 
 let
-  inherit (lib.modules) mkIf;
+  inherit (lib.modules) mkIf mkForce;
   inherit (self.lib) mkServiceOption;
 in
 
@@ -108,7 +108,7 @@ in
         log_statement = "all";
         logging_collector = true;
         log_disconnections = true;
-        log_destination = lib.mkForce "syslog";
+        log_destination = mkForce "syslog";
       };
     };
   };

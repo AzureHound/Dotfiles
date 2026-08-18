@@ -23,7 +23,7 @@ let
 in
 
 {
-  options.programs.hyprland.enable = lib.mkEnableOption "Enable Hyprland";
+  options.programs.hyprland.enable = lib.options.mkEnableOption "Enable Hyprland";
 
   imports = [
     ./hypr-qt-support.nix

@@ -8,12 +8,12 @@
 let
   inherit (lib.attrsets) genAttrs;
   inherit (lib.lists) elemAt;
+  inherit (lib.lists) filter;
   inherit (lib.modules) mkIf;
   inherit (lib.options) mkOption mkEnableOption;
   inherit (lib.strings) splitString;
   inherit (lib.trivial) flip pipe;
   inherit (lib.types) str listOf;
-  inherit (lib) filter;
 
   getArch = flip pipe [
     (splitString "-")

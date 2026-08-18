@@ -3,7 +3,7 @@
 let
   inherit (pkgs) lib;
 
-  scope = lib.makeScope pkgs.newScope (scopeSelf: {
+  scope = lib.customisation.makeScope pkgs.newScope (scopeSelf: {
     inherit (inputs) self;
 
     formatting = scopeSelf.callPackage ./formatting.nix { };
@@ -12,4 +12,4 @@ let
   });
 in
 
-lib.filterAttrs (_: lib.isDerivation) scope
+lib.attrsets.filterAttrs (_: lib.isDerivation) scope

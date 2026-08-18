@@ -1,7 +1,7 @@
 { lib, config, ... }:
 
 let
-  inherit (lib) mkDefault;
+  inherit (lib.modules) mkDefault;
 
   locale = "en_IN";
 in

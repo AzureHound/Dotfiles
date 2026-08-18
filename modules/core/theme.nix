@@ -33,7 +33,7 @@ in
 
               postBuild = ''
                 wrapProgram $out/bin/whiskers \
-                  --add-flag ${lib.escapeShellArg "--color-overrides=${
+                  --add-flag ${lib.strings.escapeShellArg "--color-overrides=${
                     builtins.toJSON {
                       macchiato = {
                         base = "000000";
