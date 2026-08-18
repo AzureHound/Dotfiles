@@ -26,7 +26,5 @@ in
     domain = "tldx";
     histwipe = "rm ~/.cache/cliphist/db";
     market = "ticker --config ~/.config/ticker/ticker.yml";
-    nixbuild = mkDefault "nh os switch -a";
-    # nixbuild = mkDefault "nh os switch --update -a";
   };
 }

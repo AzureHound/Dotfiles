@@ -72,9 +72,15 @@ boot *args: (builder "boot" args)
 test *args: (builder "test" args)
 
 # switch the new system configuration
+# [group('rebuild')]
+# [no-exit-message]
+# switch *args: (builder "switch" args)
+
+# switch the new system configuration
 [group('rebuild')]
 [no-exit-message]
-switch *args: (builder "switch" args)
+switch *args:
+    nh os switch -a {{ args }}
 
 [group('rebuild')]
 [macos]
