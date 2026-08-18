@@ -11,5 +11,6 @@ windows:
       - shell_command:
           - exec lazygit
   - layout: main-vertical
+    start_directory: ~/Developer/dotfiles
     panes:
       -
