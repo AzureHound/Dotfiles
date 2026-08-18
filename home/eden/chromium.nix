@@ -48,8 +48,8 @@ in
       # Stylus
       {
         id = "clngdbkpkpeebahjckkjfobafhncgmne";
-        version = "2.4.9";
-        hash = "sha256-qMU7PiV38+dCIH+NbWv1PA4PoSX3simCQeT4sTqmXGM=";
+        version = "2.4.10";
+        hash = "sha256-+A+9w8Fc7VJD3Azofjyhchmpd2QQhDPoKsfkD6C9cpM=";
       }
 
       # SponsorBlock
