@@ -40,7 +40,6 @@ in
           yes = false;
 
           not_found_auto_install = true;
-          task_output = "prefix";
           paranoid = false;
 
           disable_default_registry = false;
