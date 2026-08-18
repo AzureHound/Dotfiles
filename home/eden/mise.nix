@@ -20,6 +20,7 @@ in
 
           "npm:czg" = "latest";
           "npm:five-server" = "latest";
+          "npm:torlnk" = "latest";
         };
 
         settings = {
