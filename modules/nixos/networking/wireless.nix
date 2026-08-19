@@ -11,13 +11,13 @@
 
     # iwd
     iwd.settings = {
-      Settings.AutoConnect = true;
+      # Settings.AutoConnect = true;
 
       General = {
-        AddressRandomization = "network";
-        AddressRandomizationRange = "full";
+        # AddressRandomization = "network";
+        # AddressRandomizationRange = "full";
 
-        EnableNetworkConfiguration = true;
+        # EnableNetworkConfiguration = true;
         RoamRetryInterval = 15;
       };
     };
