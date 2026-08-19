@@ -1,4 +1,4 @@
-{ config, ... }:
+{ name, config, ... }:
 
 let
   inherit (config.home) homeDirectory;
@@ -26,20 +26,19 @@ in
         ControlMaster = "no";
         ControlPath = "~/.ssh/master-%r@%n:%p";
         ControlPersist = "no";
+        IdentitiesOnly = true;
       };
 
       "aur.archlinux.org" = {
         User = "aur";
         HostName = "aur.archlinux.org";
         IdentityFile = secrets.aur.path;
-        IdentitiesOnly = true;
       };
 
       "codeberg.org" = {
         User = "git";
         HostName = "codeberg.org";
         IdentityFile = secrets.codeberg.path;
-        IdentitiesOnly = true;
       };
 
       "forgejo.eyeshome.duckdns.org" = {
@@ -47,33 +46,31 @@ in
         HostName = "forgejo.eyeshome.duckdns.org";
         Port = 222;
         IdentityFile = secrets.forgejo.path;
-        IdentitiesOnly = true;
       };
 
       "forgejo.softshell.duckdns.org" = {
         User = "forgejo";
         HostName = "forgejo.softshell.duckdns.org";
         IdentityFile = secrets.forgejo.path;
-        IdentitiesOnly = true;
       };
 
       "github.com" = {
         User = "git";
         HostName = "github.com";
         IdentityFile = secrets.github.path;
-        IdentitiesOnly = true;
       };
 
       "gitlab.com" = {
         User = "git";
         HostName = "gitlab.com";
         IdentityFile = secrets.gitlab.path;
-        IdentitiesOnly = true;
       };
 
-      "legion".HostName = "10.10.0.4";
+      "legion" = {
+        User = "${name}";
+        HostName = "10.10.0.4";
+      };
 
-      "zero".HostName = "192.168.29.10";
     };
   };
 
