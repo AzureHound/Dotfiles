@@ -10,6 +10,7 @@
     ./caffeine.nix
     ./cava.nix
     ./chromium.nix
+    ./clipse.nix
     ./cursors.nix
     ./direnv.nix
     ./discord.nix

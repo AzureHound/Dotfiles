@@ -24,7 +24,6 @@ in
     todo = "nvim ~/Obsidian/To-do.md";
 
     domain = "tldx";
-    histwipe = "rm ~/.cache/cliphist/db";
     market = "ticker --config ~/.config/ticker/ticker.yml";
   };
 }
