@@ -2,6 +2,7 @@
   pkgs,
   mkpkg,
   mkCfgLink,
+  mkScptLink,
   ...
 }:
 
@@ -72,7 +73,14 @@
     # vitetris
   ];
 
-  # configHome
+  # Symlinks
+  home.scripts = mkScptLink [
+    "game-id"
+    "rig"
+    "spotdl-sync"
+    "windows"
+  ];
+
   xdg.configFile = mkCfgLink [
     # "lsfg-vk"
     "OpenRGB"

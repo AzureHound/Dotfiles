@@ -1,4 +1,9 @@
-{ lib, pkgs, ... }:
+{
+  lib,
+  pkgs,
+  mkScptLink,
+  ...
+}:
 
 let
   inherit (lib.modules) mkAfter;
@@ -44,6 +49,11 @@ in
     # libreoffice-fresh
     simple-scan
     swaybg
+  ];
+
+  # Symlinks
+  home.scripts = mkScptLink [
+    "battery"
   ];
 
   # ignore .desktop

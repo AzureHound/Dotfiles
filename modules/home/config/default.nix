@@ -17,11 +17,26 @@ in
   imports = [
     ./Home.nix
     ./configHome.nix
+    ./scripts.nix
   ];
 
-  options.ign.desktop = lib.mkOption {
-    type = lib.types.listOf lib.types.str;
-    default = [ ];
+  options = {
+    home = {
+      bin = lib.mkOption {
+        type = lib.types.attrsOf lib.types.anything;
+        default = { };
+      };
+
+      scripts = lib.mkOption {
+        type = lib.types.attrsOf lib.types.anything;
+        default = { };
+      };
+    };
+
+    ign.desktop = lib.mkOption {
+      type = lib.types.listOf lib.types.str;
+      default = [ ];
+    };
   };
 
   config = mkMerge [
@@ -39,6 +54,32 @@ in
             source = config.lib.file.mkOutOfStoreSymlink "${cfg}/config/configHome/${f}";
           });
 
+        mkBinLink =
+          ignored:
+          builtins.listToAttrs (
+            map
+              (name: {
+                name = ".local/bin/${name}";
+                value = {
+                  source = config.lib.file.mkOutOfStoreSymlink "${cfg}/config/home/.local/bin/${name}";
+                };
+              })
+              (
+                builtins.filter (n: !(builtins.elem n ignored)) (builtins.attrNames (builtins.readDir "${self}/config/home/.local/bin"))
+              )
+          );
+
+        mkScptLink =
+          files:
+          builtins.listToAttrs (
+            map (f: {
+              name = ".local/bin/${f}";
+              value = {
+                source = config.lib.file.mkOutOfStoreSymlink "${cfg}/config/home/.local/scripts/${f}";
+              };
+            }) files
+          );
+
         mkIgLink =
           ignored:
           builtins.listToAttrs (
@@ -51,17 +92,27 @@ in
           );
       };
 
-      home.activation = {
-        mkDeveloper = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-          mkdir -p ${config.home.homeDirectory}/Developer
-        '';
+      home = {
+        activation = {
+          mkDeveloper = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+            mkdir -p ${config.home.homeDirectory}/Developer
+          '';
 
-        mkDirectories = mkIf config.pixel.profiles.graphical.enable (
-          lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-            mkdir -p ${config.home.homeDirectory}/Archive \
-              "${config.xdg.dataHome}/Lyrics"
-          ''
-        );
+          mkDirectories = mkIf config.pixel.profiles.graphical.enable (
+            lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+              mkdir -p ${config.home.homeDirectory}/Archive \
+                "${config.home.homeDirectory}/.local/bin" \
+                "${config.xdg.dataHome}/Lyrics"
+            ''
+          );
+        };
+
+        file =
+          with config.home;
+          mkMerge [
+            bin
+            scripts
+          ];
       };
     }
   ];

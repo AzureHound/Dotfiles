@@ -4,6 +4,7 @@
   config,
   osConfig,
   mkHomeLink,
+  mkBinLink,
   mkIgLink,
   ...
 }:
@@ -19,12 +20,15 @@ in
     })
 
     (mkIf config.pixel.profiles.graphical.enable {
-      home.file = mkHomeLink [
-        ".czrc"
-        ".face"
-        ".local/bin"
-        ".local/share/fonts"
-      ];
+      home = {
+        file = mkHomeLink [
+          ".czrc"
+          ".face"
+          ".local/share/fonts"
+        ];
+
+        bin = mkBinLink [ ];
+      };
 
       xdg.dataFile = mkIf pkgs.stdenv.hostPlatform.isLinux (mkIgLink config.ign.desktop);
     })
