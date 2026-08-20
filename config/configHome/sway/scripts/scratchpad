@@ -9,7 +9,7 @@ if swaymsg -t get_tree | jq -e '.. | select(.app_id?=="'$name'" and .scratchpad_
   sleep 0.1
   swaymsg "[app_id=\"$name\"] move position center, opacity set 1"
 else
-  swaymsg "[floating] move scratchpad" 2>/dev/null
+  swaymsg '[floating title="^(?!Picture-in-Picture$).*"] move scratchpad' 2>/dev/null
 
   if swaymsg -t get_tree | grep -qP "\"app_id\":\s*\"${name}\""; then
     swaymsg "[app_id=\"$name\"] opacity set 0, scratchpad show"
