@@ -34,8 +34,8 @@ in
       # Bitwarden
       {
         id = "nngceckbapebfimnlniiiahkandclblb";
-        version = "26.8.8";
-        hash = "sha256-YMxdns0GeVQieUCsQiJRS2CGHC0JwVSmNZ4vApKPasw=";
+        version = "2026.8.0";
+        hash = "sha256-0aWULZwjTQM4LamSeZMgVQZMquejLMmxV5QMhjFl1Z8=";
       }
 
       # uBlock Origin
