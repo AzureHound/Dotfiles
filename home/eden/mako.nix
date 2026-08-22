@@ -7,7 +7,7 @@
       padding = "0,15,25";
       border-radius = 5;
       default-timeout = 8000;
-      ignore-timeout = 1;
+      ignore-timeout = 0;
       font = "Maple Mono 12";
 
       background-color = "#24273a";

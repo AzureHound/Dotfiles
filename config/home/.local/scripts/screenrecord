@@ -1,11 +1,5 @@
 #!/usr/bin/env bash
 
-if pgrep -f "gpu-screen-recorder" >/dev/null; then
-  pkill -INT -f gpu-screen-recorder
-  notify-send -u normal -t "$NOTIF_TIMEOUT" "Previous recording stopped" "Recording exited."
-  exit 0
-fi
-
 set -e
 
 DEFAULT_OUTPUT_DIR="$HOME/Videos/Screen Recording"
@@ -13,39 +7,38 @@ DELAY=0
 SILENT=0
 NOTIF_TIMEOUT=5000
 DATE_TIME_FORMAT="+%Y-%m-%d_%H-%M-%S"
-OUTPUT_FILE_EXTENSION=".mp4"
+OUTPUT_FILE_EXTENSION=".mkv"
 CUSTOM_FILENAME=""
-RECORD_AUDIO=1 # 1=system | 2=system+mic
+RECORD_AUDIO=1         # 1=system | 2=system+mic
 FPS=30
 RESOLUTION="1920x1080" # 1920x1080 | 2560x1440 | 1280x720 | original
-CURSOR="no"
-COLOR_RANGE="limited" # limited | full
-CLIPBOARD=1           # 1=copy to clipboard after recording
+CURSOR="yes"
+COLOR_RANGE="full"     # limited | full
+CLIPBOARD=1            # 1=copy to clipboard after recording
 
 Help() {
   cat <<EOF
-Usage: screenrcd [options]
+Usage: screenrecord [options]
 
 eg:
-  Record fullscreen:                        screenrcd
-  Record with 5s delay:                     screenrcd --delay 5
-  Record to custom dir:                     screenrcd --output-folder ~/MyRecordings
-  Record at 144fps:                         screenrcd --fps 144
-  Record at QHD:                            screenrcd --resolution 2560x1440
-  Record with mic:                          screenrcd --audio
+  Record fullscreen:                        screenrecord
+  Record with 5s delay:                     screenrecord --delay 5
+  Record to custom dir:                     screenrecord --output-folder ~/MyRecordings
+  Record at 144fps:                         screenrecord --fps 144
+  Record at QHD:                            screenrecord --resolution 2560x1440
+  Record with mic:                          screenrecord --audio
 
 Options:
   -h, --help                                Show help msg.
   -o, --output-folder <dir>                 Save Directory [default: $DEFAULT_OUTPUT_DIR].
-  -f, --filename <name>                     Custom filename [default: YYYY-MM-DD_HH-MM-SS.mp4].
+  -f, --filename <name>                     Custom filename [default: YYYY-MM-DD_HH-MM-SS.mkv].
   -D, --delay <seconds>                     Countdown Delay [default: $DELAY].
   -s, --silent                              Silent notify.
-  -t, --notif-timeout <ms>                  Notification timeout [default: $NOTIF_TIMEOUT].
+  -t, --notify-timeout <ms>                 Notification timeout in milliseconds [default: $NOTIF_TIMEOUT].
   -a, --audio                               Include microphone [system audio always recorded].
   -F, --fps <n>                             Frame rate 30-240 [default: $FPS].
   -r, --resolution <WxH>                    1920x1080 | 2560x1440 | 1280x720 | original [default: $RESOLUTION].
   -C, --no-cursor                           Hide cursor in recording.
-
 EOF
 }
 
@@ -70,12 +63,14 @@ send_notification() {
 
   case "$action" in
   "view")
-    mpv "$output_file"
+    mpv --hwdec=auto "$output_file"
     ;;
   "folder")
     xdg-open "$(dirname "$output_file")"
     ;;
-  *) ;;
+  *)
+    echo "No valid action selected or notification dismissed."
+    ;;
   esac
 }
 
@@ -84,7 +79,7 @@ run_fullscreen_record() {
 
   local audio_args="-ac opus -a default_output"
   if [ "$RECORD_AUDIO" -eq 2 ]; then
-    audio_args="-ac opus -a default_output|default_input"
+    audio_args="-ac opus -a 'default_output|default_input'"
   fi
 
   local res_arg=""
@@ -92,6 +87,7 @@ run_fullscreen_record() {
 
   for i in {3..1}; do
     notify-send -e \
+      -t 1100 \
       -h string:x-canonical-private-synchronous:record_countdown \
       -h int:value:$i \
       -i "computer" \
@@ -103,15 +99,9 @@ run_fullscreen_record() {
     sleep 1
   done
 
-  notify-send -e \
-    -h string:x-canonical-private-synchronous:record_countdown \
-    -h int:value:0 \
-    -i "computer" \
-    -t 1 "" ""
-
   [ "$DELAY" -gt 0 ] && sleep "$DELAY"
 
-  gpu-screen-recorder -w portal -restore-portal-session yes $audio_args -f "$FPS" $res_arg -k h264 -q very_high -cr "$COLOR_RANGE" -cursor "$CURSOR" -o "$current_output_file" || {
+  eval gpu-screen-recorder -w portal -restore-portal-session yes $audio_args -v no -f "$FPS" $res_arg -k hevc -q very_high -cr "$COLOR_RANGE" -cursor "$CURSOR" -o \"$current_output_file\" || {
     notify-send -u critical -t "$NOTIF_TIMEOUT" "Screen Recorder" "Recording failed!"
     exit 1
   }
@@ -172,10 +162,17 @@ args() {
   done
 }
 
+args "$@"
+
+if pgrep -f "gpu-screen-recorder" >/dev/null; then
+  pkill -INT -f gpu-screen-recorder
+  notify-send -u normal -t "$NOTIF_TIMEOUT" "Previous recording stopped" "Recording exited."
+  exit 0
+fi
+
 OUTPUT_DIR="${OUTPUT_DIR:-$DEFAULT_OUTPUT_DIR}"
 [ -z "$CUSTOM_FILENAME" ] && FILENAME="$(date "$DATE_TIME_FORMAT")$OUTPUT_FILE_EXTENSION"
 
-args "$@"
 mkdir -p "$OUTPUT_DIR"
 FULL_OUTPUT_FILE="$OUTPUT_DIR/$FILENAME"
 

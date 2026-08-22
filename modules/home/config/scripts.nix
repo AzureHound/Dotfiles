@@ -37,6 +37,7 @@ in
           "hidpi"
           "mechsounds"
           "rip"
+          "screenrecord"
           "sounds"
         ]
       );
