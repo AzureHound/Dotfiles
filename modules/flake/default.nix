@@ -16,6 +16,8 @@ let
 in
 
 {
+  legacyPackages = forAllSystems (pkgs: import ./pkgs { inherit pkgs inputs; });
+
   devShells = forAllSystems (pkgs: {
     default = pkgs.callPackage ./programs/devshell.nix {
       treefmt-wrapped = self.formatter.${pkgs.stdenv.hostPlatform.system};

@@ -129,6 +129,12 @@ update *input:
       --commit-lockfile-summary "chore(flake): update {{ if input == "" { "all inputs" } else { input } }}" \
       --flake {{ flake }}
 
+# update the pinned brew and chromium sources
+[group('dev')]
+[no-exit-message]
+update-pins *targets:
+    nix run {{ flake }}#update-pins -- {{ targets }}
+
 # push to the mirrors
 [group('dev')]
 [no-exit-message]
