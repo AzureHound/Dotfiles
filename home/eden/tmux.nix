@@ -65,10 +65,12 @@ in
     };
 
     home = {
-      packages = with pkgs; [
-        gitmux
-      ]
-      ++ lib.optionals isLinux [ vlock ];
+      packages =
+        with pkgs;
+        [
+          gitmux
+        ]
+        ++ lib.optionals isLinux [ vlock ];
 
       file = mkHomeLink [ ".gitmux.conf" ];
 

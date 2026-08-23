@@ -43,20 +43,22 @@ in
     };
 
     home = {
-      packages = with pkgs; [
-        (catppuccin-kvantum.override {
-          accent = "lavender";
-          variant = "macchiato";
-        })
-      ]
-      ++ (with pkgs.libsForQt5; [
-        catppuccin-qt5ct
-        qtstyleplugin-kvantum
-      ])
-      ++ (with pkgs.kdePackages; [
-        qt6ct
-        qtstyleplugin-kvantum
-      ]);
+      packages =
+        with pkgs;
+        [
+          (catppuccin-kvantum.override {
+            accent = "lavender";
+            variant = "macchiato";
+          })
+        ]
+        ++ (with pkgs.libsForQt5; [
+          catppuccin-qt5ct
+          qtstyleplugin-kvantum
+        ])
+        ++ (with pkgs.kdePackages; [
+          qt6ct
+          qtstyleplugin-kvantum
+        ]);
 
       sessionVariables = {
         QT_AUTO_SCREEN_SCALE_FACTOR = "1";

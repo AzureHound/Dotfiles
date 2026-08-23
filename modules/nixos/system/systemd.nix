@@ -26,17 +26,19 @@ in
         DefaultDeviceTimeoutSec = "15s";
       };
 
-      services = genAttrs [
-        "getty@tty1"
-        "autovt@tty1"
-        "getty@tty7"
-        "autovt@tty7"
-        "kmsconvt@tty1"
-        "kmsconvt@tty7"
-      ]
-      (_: {
-        enable = false;
-      });
+      services =
+        genAttrs
+          [
+            "getty@tty1"
+            "autovt@tty1"
+            "getty@tty7"
+            "autovt@tty7"
+            "kmsconvt@tty1"
+            "kmsconvt@tty7"
+          ]
+          (_: {
+            enable = false;
+          });
     })
   ];
 }

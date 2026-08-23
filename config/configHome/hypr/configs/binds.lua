@@ -21,9 +21,7 @@ local launcher_scripts = home .. "/.config/rofi/scripts"
 local moveactivewindow =
   'grep -q "true" <<< $(hyprctl activewindow -j | jq -r .floating) && hyprctl dispatch moveactive'
 
-local function launch(cmd)
-  return cmd .. " & disown; hyprctl dispatch submap reset"
-end
+local function launch(cmd) return cmd .. " & disown; hyprctl dispatch submap reset" end
 
 -- █▄▀ █▀▀ █▄█ █▄▄ █ █▄ █ █▀▄ █ █▄ █ █▀▀ █▀
 -- █ █ ██▄  █  █▄█ █ █ ▀█ █▄▀ █ █ ▀█ █▄█ ▄█
@@ -207,10 +205,26 @@ hl.bind(meta .. " + SHIFT + J", hl.dsp.window.move({ direction = "d" }))
 hl.bind(meta .. " + SHIFT + K", hl.dsp.window.move({ direction = "u" }))
 hl.bind(meta .. " + SHIFT + L", hl.dsp.window.move({ direction = "r" }))
 
-hl.bind(meta .. " + SHIFT + LEFT",  hl.dsp.exec_cmd(moveactivewindow .. " -10 0 || hyprctl dispatch movewindow l"), { repeating = true, locked = true })
-hl.bind(meta .. " + SHIFT + UP",    hl.dsp.exec_cmd(moveactivewindow .. " 0 -10 || hyprctl dispatch movewindow u"), { repeating = true, locked = true })
-hl.bind(meta .. " + SHIFT + DOWN",  hl.dsp.exec_cmd(moveactivewindow .. " 0 10  || hyprctl dispatch movewindow d"), { repeating = true, locked = true })
-hl.bind(meta .. " + SHIFT + RIGHT", hl.dsp.exec_cmd(moveactivewindow .. " 10 0  || hyprctl dispatch movewindow r"), { repeating = true, locked = true })
+hl.bind(
+  meta .. " + SHIFT + LEFT",
+  hl.dsp.exec_cmd(moveactivewindow .. " -10 0 || hyprctl dispatch movewindow l"),
+  { repeating = true, locked = true }
+)
+hl.bind(
+  meta .. " + SHIFT + UP",
+  hl.dsp.exec_cmd(moveactivewindow .. " 0 -10 || hyprctl dispatch movewindow u"),
+  { repeating = true, locked = true }
+)
+hl.bind(
+  meta .. " + SHIFT + DOWN",
+  hl.dsp.exec_cmd(moveactivewindow .. " 0 10  || hyprctl dispatch movewindow d"),
+  { repeating = true, locked = true }
+)
+hl.bind(
+  meta .. " + SHIFT + RIGHT",
+  hl.dsp.exec_cmd(moveactivewindow .. " 10 0  || hyprctl dispatch movewindow r"),
+  { repeating = true, locked = true }
+)
 
 -- Groups
 hl.bind(meta .. " + G", hl.dsp.group.toggle())
@@ -307,18 +321,64 @@ hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = tr
 hl.bind("XF86AudioPlay",  hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 
 -- Volume
-hl.bind("XF86AudioMute",        hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle; wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '/MUTED/ {print 0; next} {print int($2 * 100)}' > $XDG_RUNTIME_DIR/wob.sock"))
-hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%+; rmpc volume +5; wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print int($2 * 100)}' > $XDG_RUNTIME_DIR/wob.sock"), { repeating = true, locked = true })
-hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%-; rmpc volume -5; wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print int($2 * 100)}' > $XDG_RUNTIME_DIR/wob.sock"), { repeating = true, locked = true })
+hl.bind(
+  "XF86AudioMute",
+  hl.dsp.exec_cmd(
+    "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle; wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '/MUTED/ {print 0; next} {print int($2 * 100)}' > $XDG_RUNTIME_DIR/wob.sock"
+  )
+)
+hl.bind(
+  "XF86AudioRaiseVolume",
+  hl.dsp.exec_cmd(
+    "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%+; rmpc volume +5; wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print int($2 * 100)}' > $XDG_RUNTIME_DIR/wob.sock"
+  ),
+  { repeating = true, locked = true }
+)
+hl.bind(
+  "XF86AudioLowerVolume",
+  hl.dsp.exec_cmd(
+    "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 5%-; rmpc volume -5; wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print int($2 * 100)}' > $XDG_RUNTIME_DIR/wob.sock"
+  ),
+  { repeating = true, locked = true }
+)
 
 -- Microphone
-hl.bind("SHIFT + XF86AudioMute",        hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle; wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | awk '/MUTED/ {print 0; next} {print int($2 * 100)}' > $XDG_RUNTIME_DIR/wob.sock"))
-hl.bind("SHIFT + XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SOURCE@ 5%+; wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | awk '{print int($2 * 100)}' > $XDG_RUNTIME_DIR/wob.sock"), { repeating = true, locked = true })
-hl.bind("SHIFT + XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SOURCE@ 5%-; wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | awk '{print int($2 * 100)}' > $XDG_RUNTIME_DIR/wob.sock"), { repeating = true, locked = true })
+hl.bind(
+  "SHIFT + XF86AudioMute",
+  hl.dsp.exec_cmd(
+    "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle; wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | awk '/MUTED/ {print 0; next} {print int($2 * 100)}' > $XDG_RUNTIME_DIR/wob.sock"
+  )
+)
+hl.bind(
+  "SHIFT + XF86AudioRaiseVolume",
+  hl.dsp.exec_cmd(
+    "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SOURCE@ 5%+; wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | awk '{print int($2 * 100)}' > $XDG_RUNTIME_DIR/wob.sock"
+  ),
+  { repeating = true, locked = true }
+)
+hl.bind(
+  "SHIFT + XF86AudioLowerVolume",
+  hl.dsp.exec_cmd(
+    "wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SOURCE@ 5%-; wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | awk '{print int($2 * 100)}' > $XDG_RUNTIME_DIR/wob.sock"
+  ),
+  { repeating = true, locked = true }
+)
 
 -- Brightness
-hl.bind("F11", hl.dsp.exec_cmd("CUR=$(ddcutil --bus=6 getvcp 10 | awk -F 'current value = ' '{print $2}' | awk -F, '{print $1}' | tr -d ' '); VAL=$((CUR - 5)); [ $VAL -lt 0 ]   && VAL=0;   ddcutil --bus=6 setvcp 10 $VAL & echo $VAL > $XDG_RUNTIME_DIR/wob.sock"), { repeating = true })
-hl.bind("F12", hl.dsp.exec_cmd("CUR=$(ddcutil --bus=6 getvcp 10 | awk -F 'current value = ' '{print $2}' | awk -F, '{print $1}' | tr -d ' '); VAL=$((CUR + 5)); [ $VAL -gt 100 ] && VAL=100; ddcutil --bus=6 setvcp 10 $VAL & echo $VAL > $XDG_RUNTIME_DIR/wob.sock"), { repeating = true })
+hl.bind(
+  "F11",
+  hl.dsp.exec_cmd(
+    "CUR=$(ddcutil --bus=6 getvcp 10 | awk -F 'current value = ' '{print $2}' | awk -F, '{print $1}' | tr -d ' '); VAL=$((CUR - 5)); [ $VAL -lt 0 ]   && VAL=0;   ddcutil --bus=6 setvcp 10 $VAL & echo $VAL > $XDG_RUNTIME_DIR/wob.sock"
+  ),
+  { repeating = true }
+)
+hl.bind(
+  "F12",
+  hl.dsp.exec_cmd(
+    "CUR=$(ddcutil --bus=6 getvcp 10 | awk -F 'current value = ' '{print $2}' | awk -F, '{print $1}' | tr -d ' '); VAL=$((CUR + 5)); [ $VAL -gt 100 ] && VAL=100; ddcutil --bus=6 setvcp 10 $VAL & echo $VAL > $XDG_RUNTIME_DIR/wob.sock"
+  ),
+  { repeating = true }
+)
 
 -- Zoom
 hl.bind(hyper .. " + CTRL + Z", hl.dsp.exec_cmd("pypr zoom"))
@@ -397,9 +457,16 @@ hl.bind(hyper .. " + CTRL + mouse_down", function() zoom(1.1) end)
 -- ▀▄▀ █ ▀ █
 
 hl.bind("CTRL + " .. meta .. " + ALT + P", hl.dsp.submap("passthru"))
-hl.define_submap("passthru", function()
-  hl.bind("CTRL + " .. meta .. " + ALT + P", hl.dsp.submap("reset"))
-end)
+hl.define_submap("passthru", function() hl.bind("CTRL + " .. meta .. " + ALT + P", hl.dsp.submap("reset")) end)
 
 -- Windows VM
-hl.bind(hyper .. " + CTRL + BACKSLASH", hl.dsp.exec_cmd('hyprctl dispatch exec "[float; size (monitor_w*0.6) (monitor_h*0.7); center 1] ' .. term .. ' ' .. bin .. '/windows"'))
+hl.bind(
+  hyper .. " + CTRL + BACKSLASH",
+  hl.dsp.exec_cmd(
+    'hyprctl dispatch exec "[float; size (monitor_w*0.6) (monitor_h*0.7); center 1] '
+      .. term
+      .. " "
+      .. bin
+      .. '/windows"'
+  )
+)

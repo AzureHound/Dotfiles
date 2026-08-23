@@ -50,7 +50,8 @@ in
       wvous-bl-corner = 1;
       wvous-br-corner = 14;
 
-      persistent-apps = [ ]
+      persistent-apps =
+        [ ]
         ++ cryptexApps [ "Safari.app" ]
         ++ systemApps [
           "Messages.app"

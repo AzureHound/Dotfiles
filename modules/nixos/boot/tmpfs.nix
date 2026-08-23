@@ -9,11 +9,9 @@ in
 
 {
   options.pixel.system.boot = {
-    tmpOnTmpfs =
-      mkEnableOption "`/tmp` living on tmpfs"
-      // {
-        default = true;
-      };
+    tmpOnTmpfs = mkEnableOption "`/tmp` living on tmpfs" // {
+      default = true;
+    };
   };
 
   config.boot.tmp = {

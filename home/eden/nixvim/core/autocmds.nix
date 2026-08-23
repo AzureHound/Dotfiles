@@ -1,21 +1,53 @@
 {
   autoGroups = {
-    leader = { clear = true; };
-    position = { clear = true; };
-    highlight_yank = { clear = true; };
-    numtoggle = { clear = true; };
-    newline_comments = { clear = true; };
-    json_conceal = { clear = true; };
-    env_diagnostics = { clear = true; };
-    disableeslintonnodemodules = { clear = true; };
-    man_pages = { clear = true; };
-    spell_warp = { clear = true; };
-    checktime = { clear = true; };
-    mkdir = { clear = true; };
-    splits = { clear = true; };
-    window = { clear = true; };
-    quit = { clear = true; };
-    term = { clear = true; };
+    leader = {
+      clear = true;
+    };
+    position = {
+      clear = true;
+    };
+    highlight_yank = {
+      clear = true;
+    };
+    numtoggle = {
+      clear = true;
+    };
+    newline_comments = {
+      clear = true;
+    };
+    json_conceal = {
+      clear = true;
+    };
+    env_diagnostics = {
+      clear = true;
+    };
+    disableeslintonnodemodules = {
+      clear = true;
+    };
+    man_pages = {
+      clear = true;
+    };
+    spell_warp = {
+      clear = true;
+    };
+    checktime = {
+      clear = true;
+    };
+    mkdir = {
+      clear = true;
+    };
+    splits = {
+      clear = true;
+    };
+    window = {
+      clear = true;
+    };
+    quit = {
+      clear = true;
+    };
+    term = {
+      clear = true;
+    };
   };
 
   autoCmd = [

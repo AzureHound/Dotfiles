@@ -6,7 +6,7 @@
       allowUnfree = true;
       allowUnfreePredicate = _: true;
 
-      permittedInsecurePackages = [];
+      permittedInsecurePackages = [ ];
 
       allowAliases = false;
       allowBroken = false;

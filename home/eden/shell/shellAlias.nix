@@ -1,9 +1,3 @@
-{ lib, ... }:
-
-let
-  inherit (lib.modules) mkDefault;
-in
-
 {
   home.shellAliases = {
     ani-cli = ''FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --preview-window=hidden" ani-cli'';
