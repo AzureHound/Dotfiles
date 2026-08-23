@@ -8,7 +8,6 @@ in
   banana-cursor = pkg ./banana-cursor.nix;
   cbonsai = pkg ./cbonsai.nix;
   greenlight = pkg ./greenlight.nix;
-  jelly = pkg ./jelly.nix;
   mechsim = pkg ./mechsim.nix;
   swaync = pkg ./swaync.nix;
 }

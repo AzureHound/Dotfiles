@@ -654,6 +654,26 @@
         "type": "github"
       }
     },
+    "jelly": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1787503054,
+        "narHash": "sha256-XbouxVjQ1VppnUCtITS6YP40GqWv2rjjslUhd8Lk8mM=",
+        "owner": "AzureHound",
+        "repo": "jelly",
+        "rev": "bd254d03b395bf63d0745d01fa26194e7031e766",
+        "type": "github"
+      },
+      "original": {
+        "owner": "AzureHound",
+        "repo": "jelly",
+        "type": "github"
+      }
+    },
     "millennium": {
       "inputs": {
         "flake-parts": "flake-parts",
@@ -885,6 +905,7 @@
         "homebrew": "homebrew",
         "hyprland": "hyprland",
         "hyprland-plugins": "hyprland-plugins",
+        "jelly": "jelly",
         "millennium": "millennium",
         "nixpkgs": "nixpkgs_2",
         "nixvim": "nixvim",

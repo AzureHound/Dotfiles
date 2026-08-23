@@ -78,6 +78,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    jelly = {
+      type = "github";
+      owner = "AzureHound";
+      repo = "jelly";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     zen-browser = {
       type = "github";
       owner = "0xc000022070";
