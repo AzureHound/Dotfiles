@@ -139,8 +139,10 @@ update-pins *targets:
 [group('dev')]
 [no-exit-message]
 push-mirrors:
+    git push git@codeberg.org:AzureHound/dotfiles.git
+    git push git@forgejo.eyeshome.duckdns.org:AzureHound/dotfiles.git
+    git push git@github.com:AzureHound/dotfiles.git
     git push git@gitlab.com:AzureHound/dotfiles.git
-    git push --mirror ssh://git@codeberg.org/AzureHound/dotfiles.git
 
 # rotate all secrets
 [group('dev')]
