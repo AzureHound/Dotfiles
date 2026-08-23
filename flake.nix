@@ -8,13 +8,6 @@
     # http://web.archive.org/web/20250806225139/https://nix.dev/manual/nix/2.28/protocols/tarball-fetcher#lockable-http-tarball-protocol
     nixpkgs.url = "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.zst";
 
-    # nixos-raspberrypi = {
-    #   type = "github";
-    #   owner = "nvmd";
-    #   repo = "nixos-raspberrypi";
-    #   ref = "main";
-    # };
-
     home-manager = {
       type = "github";
       owner = "nix-community";
@@ -22,11 +15,20 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    autoaspm = {
-      type = "git";
-      url = "https://git.notthebe.ee/notthebee/AutoASPM";
+    darwin = {
+      type = "github";
+      owner = "nix-darwin";
+      repo = "nix-darwin";
+      ref = "master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # nixos-raspberrypi = {
+    #   type = "github";
+    #   owner = "nvmd";
+    #   repo = "nixos-raspberrypi";
+    #   ref = "main";
+    # };
 
     disko = {
       type = "github";
@@ -42,12 +44,30 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    darwin = {
-      type = "github";
-      owner = "nix-darwin";
-      repo = "nix-darwin";
-      ref = "master";
+    autoaspm = {
+      type = "git";
+      url = "https://git.notthebe.ee/notthebee/AutoASPM";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # nixbot = {
+    #   type = "github";
+    #   owner = "Mic92";
+    #   repo = "nixbot";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+
+    hyprland = {
+      type = "github";
+      owner = "hyprwm";
+      repo = "Hyprland";
+    };
+
+    hyprland-plugins = {
+      type = "github";
+      owner = "hyprwm";
+      repo = "hyprland-plugins";
+      inputs.hyprland.follows = "hyprland";
     };
 
     homebrew = {
@@ -71,11 +91,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    spicetify = {
+    zen-browser = {
       type = "github";
-      owner = "Gerg-L";
-      repo = "spicetify-nix";
+      owner = "0xc000022070";
+      repo = "zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
     };
 
     jelly = {
@@ -85,12 +106,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    zen-browser = {
+    spicetify = {
       type = "github";
-      owner = "0xc000022070";
-      repo = "zen-browser-flake";
+      owner = "Gerg-L";
+      repo = "spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
     };
 
     millennium = {
@@ -99,26 +119,6 @@
       repo = "nixos-millennium";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    hyprland = {
-      type = "github";
-      owner = "hyprwm";
-      repo = "Hyprland";
-    };
-
-    hyprland-plugins = {
-      type = "github";
-      owner = "hyprwm";
-      repo = "hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
-
-    # nixbot = {
-    #   type = "github";
-    #   owner = "Mic92";
-    #   repo = "nixbot";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
 
     apple-fonts = {
       type = "github";
