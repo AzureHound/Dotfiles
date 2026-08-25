@@ -7,7 +7,7 @@
 }:
 
 let
-  gaming = osConfig.pixel.profiles.gaming.enable;
+  gaming = osConfig.pixel.profiles.gaming.enable or false;
 in
 
 {

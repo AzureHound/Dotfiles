@@ -1,8 +1,8 @@
-{ config, ... }:
+{ pkgs, config, ... }:
 
 {
   services.clipse = {
-    inherit (config.pixel.profiles.graphical) enable;
+    enable = pkgs.stdenv.hostPlatform.isLinux && config.pixel.profiles.graphical.enable;
 
     settings = {
       allowDuplicates = false;

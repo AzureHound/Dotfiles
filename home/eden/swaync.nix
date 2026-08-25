@@ -1,5 +1,6 @@
 {
   lib,
+  pkgs,
   mkpkg,
   config,
   mkCfgLink,
@@ -11,7 +12,7 @@ let
 in
 
 {
-  config = mkIf config.pixel.profiles.graphical.enable {
+  config = mkIf (pkgs.stdenv.hostPlatform.isLinux && config.pixel.profiles.graphical.enable) {
     services = {
       swaync = {
         enable = config.programs.hyprland.enable;

@@ -11,7 +11,7 @@ let
 in
 
 {
-  config = mkIf config.pixel.profiles.graphical.enable {
+  config = mkIf (config.pixel.profiles.graphical.enable && config.programs.kitty.enable) {
     programs.kitty = {
       shellIntegration.mode = "no-cursor";
 
