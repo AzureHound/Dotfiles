@@ -80,7 +80,7 @@ test *args: (builder "test" args)
 [group('rebuild')]
 [no-exit-message]
 switch *args:
-    nh os switch -a {{ args }}
+    nh {{ if os() == "macos" { "darwin" } else { "os" } }} switch -a {{ args }}
 
 [group('rebuild')]
 [macos]
