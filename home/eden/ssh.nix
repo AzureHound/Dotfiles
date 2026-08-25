@@ -71,6 +71,15 @@ in
         HostName = "10.10.0.4";
       };
 
+      "server" = {
+        User = "eyes";
+        HostName = "10.10.0.4";
+      };
+
+      "zero" = {
+        User = "eyes";
+        HostName = "192.168.29.10";
+      };
     };
   };
 
