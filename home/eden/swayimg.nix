@@ -2,7 +2,7 @@
 
 {
   programs.swayimg = {
-    enable = config.pixel.profiles.graphical.enable && pkgs.stdenv.hostPlatform.isLinux;
+    enable = pkgs.stdenv.hostPlatform.isLinux && config.pixel.profiles.graphical.enable;
 
     initLua = ''
       ---@diagnostic disable: undefined-global

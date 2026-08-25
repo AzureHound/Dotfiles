@@ -15,7 +15,7 @@ let
 in
 
 {
-  config = mkIf (config.pixel.profiles.graphical.enable && pkgs.stdenv.hostPlatform.isLinux) {
+  config = mkIf (pkgs.stdenv.hostPlatform.isLinux && config.pixel.profiles.graphical.enable) {
     dconf.settings = {
       "org/gnome/desktop/interface" = {
         color-scheme = "prefer-dark";

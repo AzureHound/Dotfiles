@@ -2,7 +2,7 @@
 
 {
   programs.wiremix = {
-    enable = config.pixel.profiles.graphical.enable && pkgs.stdenv.hostPlatform.isLinux;
+    enable = pkgs.stdenv.hostPlatform.isLinux && config.pixel.profiles.graphical.enable;
 
     settings = {
       fps = 30.0;

@@ -14,7 +14,7 @@ let
 in
 
 {
-  config = mkIf config.pixel.profiles.media.listening.enable {
+  config = mkIf (pkgs.stdenv.hostPlatform.isLinux && config.pixel.profiles.media.listening.enable) {
     programs.rmpc = {
       enable = true;
 
@@ -24,7 +24,7 @@ in
     xdg = {
       configFile = mkCfgLink [ "rmpc/themes" ];
 
-      desktopEntries = mkIf pkgs.stdenv.hostPlatform.isLinux {
+      desktopEntries = {
         rmpc = {
           name = "rmpc";
           noDisplay = true;

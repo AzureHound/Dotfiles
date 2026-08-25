@@ -2,7 +2,7 @@
 
 {
   programs.mangohud = {
-    enable = osConfig.pixel.profiles.gaming.enable && pkgs.stdenv.hostPlatform.isLinux;
+    enable = pkgs.stdenv.hostPlatform.isLinux && osConfig.pixel.profiles.gaming.enable;
 
     settings = {
       legacy_layout = false;

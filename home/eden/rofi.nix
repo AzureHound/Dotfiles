@@ -10,13 +10,13 @@
 let
   inherit (lib) mkIf optional;
 
-  gaming = osConfig.pixel.profiles.gaming.enable;
+  gaming = pkgs.stdenv.hostPlatform.isLinux && osConfig.pixel.profiles.gaming.enable;
 in
 
 {
-  config = mkIf config.pixel.profiles.graphical.enable {
+  config = mkIf (pkgs.stdenv.hostPlatform.isLinux && config.pixel.profiles.graphical.enable) {
     programs.rofi = {
-      enable = pkgs.stdenv.hostPlatform.isLinux;
+      enable = true;
       package = pkgs.rofi;
       plugins = optional gaming pkgs.rofi-games;
 

@@ -2,7 +2,7 @@
 
 {
   services.batsignal = {
-    enable = config.pixel.profiles.laptop.enable && pkgs.stdenv.hostPlatform.isLinux;
+    enable = pkgs.stdenv.hostPlatform.isLinux && config.pixel.profiles.laptop.enable;
 
     extraArgs = [
       "-f"

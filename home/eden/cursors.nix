@@ -7,7 +7,7 @@
 
 {
   home.pointerCursor = {
-    enable = config.pixel.profiles.graphical.enable && pkgs.stdenv.hostPlatform.isLinux;
+    enable = pkgs.stdenv.hostPlatform.isLinux && config.pixel.profiles.graphical.enable;
 
     package = mkpkg.banana-cursor;
     name = "Banana-Catppuccin-Macchiato";
