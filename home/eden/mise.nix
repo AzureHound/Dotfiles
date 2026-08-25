@@ -1,5 +1,6 @@
 {
   lib,
+  pkgs,
   config,
   mkCfgLink,
   ...
@@ -63,9 +64,16 @@ in
       };
     };
 
-    home.shellAliases = {
-      cz = "czg";
-      wttr = "gust -f";
+    home = {
+      activation.syncMise = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+        run ${lib.getExe pkgs.mise} install -y
+        run ${lib.getExe pkgs.mise} prune -y
+      '';
+
+      shellAliases = {
+        cz = "czg";
+        wttr = "gust -f";
+      };
     };
 
     xdg.configFile = mkCfgLink [ "mise/templates" ];
