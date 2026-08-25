@@ -19,7 +19,7 @@ services:
       DEBUG: "Y"
     volumes:
       - ./os:/storage
-      - /home/eden/Sync/Win11.iso:/boot.iso
+      - /home/eden/Sync/Win11_24H2_x64.iso:/boot.iso
       - ./autounattend.xml:/custom.xml
       # - ./oem:/oem
       - ./LAN:/shared
