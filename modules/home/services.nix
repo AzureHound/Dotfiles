@@ -10,7 +10,7 @@ let
 in
 
 {
-  config = mkIf (config.pixel.profiles.graphical.enable && pkgs.stdenv.hostPlatform.isLinux) {
+  config = mkIf (pkgs.stdenv.hostPlatform.isLinux && config.pixel.profiles.graphical.enable) {
     services = {
       # cliphist.enable = true;
 

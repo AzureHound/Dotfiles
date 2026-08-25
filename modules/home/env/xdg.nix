@@ -261,17 +261,19 @@ in
         hsts-file = ~/.local/state/wget/history
       '';
 
-      "xdg-desktop-portal-termfilechooser/config".text = ''
-        [filechooser]
-        cmd=${pkgs.xdg-desktop-portal-termfilechooser}/share/xdg-desktop-portal-termfilechooser/yazi-wrapper.sh
-        default_dir=${config.home.homeDirectory}
-        ; create_help_file=0
-        env=TERMCMD='${pkgs.kitty}/bin/kitty -T "terminal filechooser"'
+      "xdg-desktop-portal-termfilechooser/config" = mkIf isLinux {
+        text = ''
+          [filechooser]
+          cmd=${pkgs.xdg-desktop-portal-termfilechooser}/share/xdg-desktop-portal-termfilechooser/yazi-wrapper.sh
+          default_dir=${config.home.homeDirectory}
+          ; create_help_file=0
+          env=TERMCMD='${pkgs.kitty}/bin/kitty -T "terminal filechooser"'
 
-        ; Mode must be one of 'suggested', 'default', or 'last'.
-        open_mode=suggested
-        save_mode=suggested
-      '';
+          ; Mode must be one of 'suggested', 'default', or 'last'.
+          open_mode=suggested
+          save_mode=suggested
+        '';
+      };
     };
 
     desktopEntries = mkIf isLinux {
