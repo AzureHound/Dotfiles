@@ -112,7 +112,7 @@
       }
 
       chpwd() {
-        eza -a
+        eza -a --icons
       }
 
       zstyle ':completion:*' list-colors ''${(s.:.)LS_COLORS}
