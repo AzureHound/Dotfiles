@@ -11,8 +11,8 @@ let
   hyprexpo = pkgs.callPackage (pkgs.fetchFromGitHub {
     owner = "sandwichfarm";
     repo = "hyprexpo";
-    rev = "v0.55.4";
-    hash = "sha256-sERoTu9NcGD0RA3jAdHc4GOPkRbgqMrgDT8f7+Jv9fc=";
+    rev = "v0.56.1+3";
+    hash = "sha256-lI52XGlHMAXhn8ztpRkzefFy5ZnTIsQgAlTEVYTXseA=";
   }) { };
 in
 
