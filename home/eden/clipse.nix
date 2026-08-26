@@ -10,7 +10,7 @@
       historyFile = "clipboard_history.json";
       logFile = "clipse.log";
       themeFile = "custom_theme.json";
-      tempDirPath = "tmp_files";
+      tempDir = "tmp_files";
       imageDisplay = {
         type = if config.programs.sway.enable then "sixel" else "kitty";
         scaleX = 9;
@@ -18,25 +18,25 @@
       };
       keyBindings = {
         choose = "enter";
-        clearAll = "ctrl-l";
-        down = "down";
-        end = "end";
+        clearSelected = "S";
+        down = "j";
+        end = "G";
         filter = "/";
-        home = "home";
+        forceQuit = "Q";
+        home = "g";
         more = "?";
-        nextPage = "right";
-        pageDown = "pgdown";
-        pageUp = "pgup";
-        prevPage = "left";
+        nextPage = "l";
+        prevPage = "h";
+        preview = "space";
         quit = "q";
-        remove = "delete";
-        selectDown = "ctrl-down";
-        selectSingle = "ctrl-s";
-        selectUp = "ctrl-up";
+        remove = "d";
+        selectDown = "shift+j";
+        selectSingle = "s";
+        selectUp = "shift+k";
         togglePin = "p";
         togglePinned = "tab";
-        up = "up";
-        yank = "y";
+        up = "k";
+        yankFilter = "y";
       };
     };
   };
