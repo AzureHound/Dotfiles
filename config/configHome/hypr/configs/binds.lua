@@ -463,11 +463,11 @@ hl.define_submap("passthru", function() hl.bind("CTRL + " .. meta .. " + ALT + P
 -- Windows VM
 hl.bind(
   hyper .. " + CTRL + BACKSLASH",
-  hl.dsp.exec_cmd(
-    'hyprctl dispatch exec "[float; size (monitor_w*0.6) (monitor_h*0.7); center 1] '
-      .. term
-      .. " "
-      .. bin
-      .. '/windows"'
-  )
+  hl.dsp.exec_cmd("[float; size 60% 70%; center] " .. term .. " " .. bin .. "/windows")
+)
+
+-- Windows VM Desktop
+hl.bind(
+  "CTRL + " .. meta .. " + ALT + W",
+  hl.dsp.exec_cmd(bin .. "/windows --desktop")
 )

@@ -14,7 +14,7 @@ services:
       # KEYBOARD: "en-US"
       # REGION: "en-IN"
       ARGUMENTS: "-cpu host,arch_capabilities=off"
-      # ARGUMENTS: "-cpu host,arch_capabilities=off -device usb-host,vendorid=0x03f0,productid=0x0f58"
+      # ARGUMENTS: "-cpu host,arch_capabilities=off -device qemu-xhci -device usb-host,vendorid=0x054c,productid=0x0ca8"
       # MANUAL: "Y"
       DEBUG: "Y"
     volumes:
@@ -28,6 +28,7 @@ services:
     devices:
       - /dev/kvm
       - /dev/net/tun
+      # - /dev/bus/usb:/dev/bus/usb
     ports:
       - 8006:8006
       - 3389:3389/tcp

@@ -2,7 +2,7 @@
 
 WINDOWS_USER="eden"
 WINDOWS_PASS="Longhorn"
-CACHE="$HOME/docker/Windows/LAN/apps.json"
+CACHE="$HOME/docker/windows/LAN/apps.json"
 
 # Desktop
 if [[ "$1" == "--desktop" ]]; then
