@@ -13,8 +13,9 @@
       tempDir = "tmp_files";
       imageDisplay = {
         type = if config.programs.sway.enable then "sixel" else "kitty";
-        scaleX = 9;
-        scaleY = 9;
+        scaleX = 17;
+        scaleY = 17;
+        # heightCut = 2;
       };
       keyBindings = {
         choose = "enter";
