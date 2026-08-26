@@ -14,6 +14,7 @@ hl.config({
       workspace_method = "first 1",
 
       keynav_enable = 1,
+      number_key_mode = "passthrough",
       label_enable = 0,
       border_width = 2,
       border_color_current = colors.rosewater,
@@ -31,10 +32,7 @@ hl.config({
 })
 
 -- Keybinds
-hl.bind("ALT + ESCAPE", function()
-  hl.plugin.hyprexpo.expo("toggle")
-  hl.dsp.submap("hyprexpo")
-end)
+hl.bind("ALT + ESCAPE", function() hl.plugin.hyprexpo.expo("toggle") end)
 
 hl.define_submap("hyprexpo", function()
   hl.bind("h", function() hl.plugin.hyprexpo.kb_focus("left") end)
@@ -47,8 +45,8 @@ hl.define_submap("hyprexpo", function()
   hl.bind("up",    function() hl.plugin.hyprexpo.kb_focus("up") end)
   hl.bind("down",  function() hl.plugin.hyprexpo.kb_focus("down") end)
 
-  hl.bind("return", function() hl.plugin.hyprexpo.kb_confirm() hl.dsp.submap("reset") end)
-  hl.bind("escape", function() hl.plugin.hyprexpo.expo("cancel") hl.dsp.submap("reset") end)
+  hl.bind("return", function() hl.plugin.hyprexpo.kb_confirm() end)
+  hl.bind("escape", function() hl.plugin.hyprexpo.expo("cancel") end)
 
   hl.bind("1", function() hl.plugin.hyprexpo.kb_selecti(1) end)
   hl.bind("2", function() hl.plugin.hyprexpo.kb_selecti(2) end)
