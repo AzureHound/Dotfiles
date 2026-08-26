@@ -62,6 +62,15 @@ unfocus = "hide"
 hysteresis = 0.2
 lazy = true
 
+[scratchpads.clipboard]
+animation = ""
+command = "[term] Clipboard clipse"
+class = "Clipboard"
+size = "90% 90%"
+unfocus = "hide"
+hysteresis = 0.2
+lazy = true
+
 [scratchpads.impala]
 animation = ""
 command = "[term] WiFi impala"
