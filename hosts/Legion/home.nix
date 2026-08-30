@@ -14,6 +14,7 @@
 
     vim = {
       enable = true;
+
       plugins = with pkgs.vimPlugins; [ catppuccin-vim ];
       extraConfig = ''
         let g:mapleader = " "

@@ -10,8 +10,8 @@ let
 in
 
 {
-  programs.vim = {
-    inherit (config.pixel.profiles.workstation) enable;
+  programs.vim = mkIf config.pixel.profiles.workstation.enable {
+    enable = true;
 
     plugins = with pkgs.vimPlugins; [
       catppuccin-vim
