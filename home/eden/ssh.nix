@@ -66,17 +66,12 @@ in
         IdentityFile = secrets.gitlab.path;
       };
 
-      "legion" = {
+      "Legion" = {
         User = "${name}";
         HostName = "10.10.0.4";
       };
 
-      "server" = {
-        User = "eyes";
-        HostName = "10.10.0.4";
-      };
-
-      "zero" = {
+      "Zero" = {
         User = "eyes";
         HostName = "192.168.29.10";
       };
