@@ -49,6 +49,7 @@
       bluetooth.enable = true;
       containers.enable = true;
       security.binaries.enable = true;
+      emulation.enable = true;
       virtualization = {
         enable = true;
         windows.enable = true;
