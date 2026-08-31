@@ -21,7 +21,7 @@ in
     wayland.windowManager.hyprland = {
       plugins = [
         hyprexpo
-        pkgs.hyprlandPlugins.csgo-vulkan-fix
+        # pkgs.hyprlandPlugins.csgo-vulkan-fix
       ];
     };
   };
