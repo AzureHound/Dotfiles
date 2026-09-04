@@ -24,6 +24,9 @@ in
 
     settings = {
       devices = {
+        "Legion" = {
+          id = "J2DKG2E-EZRXZFZ-X75VFH7-GNPFODV-LA3UC34-4NZWDPY-Q4CD4UC-AYAKWAZ";
+        };
         "Newton" = {
           id = "WXWHPPC-FO5QWAY-JDMUIEY-QCMA3PT-KX6N7RW-ANOZWXR-3OWQ3WV-DV7KSQ4";
         };
@@ -33,9 +36,6 @@ in
         "Orion" = {
           id = "KX7A2YG-V5JKB2X-J3FTPOD-K4HAFMS-MYJUZDD-VS7DIMU-HR3AWQI-CA63RQN";
         };
-        "Server" = {
-          id = "VM5JQBF-WVJHXAD-7EGVDNR-OPTUXI5-ZOJFHJX-ZCJIPON-WVPONFO-I3D37AE";
-        };
       };
 
       folders = lib.filterAttrs (_: v: builtins.elem hostname v.devices) {
@@ -43,9 +43,9 @@ in
           id = "music";
           path = "${home}/Music";
           devices = [
+            "Legion"
             "Notebook"
             "Orion"
-            "Server"
           ];
           ignorePerms = false;
           ignorePatterns = [ "(?d).DS_Store" ];
@@ -56,10 +56,10 @@ in
           id = "obsidian";
           path = "${home}/Obsidian";
           devices = [
+            "Legion"
             "Newton"
             "Notebook"
             "Orion"
-            "Server"
           ];
           ignorePerms = false;
           ignorePatterns = [ "(?d).DS_Store" ];
@@ -70,10 +70,10 @@ in
           id = "sync";
           path = "${home}/Sync";
           devices = [
+            "Legion"
             "Newton"
             "Notebook"
             "Orion"
-            "Server"
           ];
           ignorePerms = false;
           ignorePatterns = [ "(?d).DS_Store" ];
@@ -84,8 +84,8 @@ in
           id = "wallpapers";
           path = "${home}/Videos/Wallpapers";
           devices = [
+            "Legion"
             "Orion"
-            "Server"
           ];
           ignorePerms = false;
           ignorePatterns = [ "(?d).DS_Store" ];
