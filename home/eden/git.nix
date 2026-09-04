@@ -305,7 +305,7 @@ in
                 alias = "codeberg";
               }
               {
-                domain = "forgejo.eyeshome.duckdns.org";
+                domain = "forgejo.softshell.duckdns.org";
                 alias = "forgejo";
               }
               {

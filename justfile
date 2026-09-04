@@ -140,7 +140,7 @@ update-pins *targets:
 [no-exit-message]
 push-mirrors:
     git push git@codeberg.org:AzureHound/dotfiles.git
-    git push git@forgejo.eyeshome.duckdns.org:AzureHound/dotfiles.git
+    git push git@forgejo.softshell.duckdns.org:AzureHound/dotfiles.git
     git push git@github.com:AzureHound/dotfiles.git
     git push git@gitlab.com:AzureHound/dotfiles.git
 

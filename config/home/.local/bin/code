@@ -64,7 +64,7 @@ if [[ "$1" == "init" ]]; then
 
   for r in \
     "codeberg git@codeberg.org:AzureHound/${folder}.git" \
-    "forgejo git@forgejo.eyeshome.duckdns.org:AzureHound/${folder}.git" \
+    "forgejo git@forgejo.softshell.duckdns.org:AzureHound/${folder}.git" \
     "github git@github.com:AzureHound/${folder}.git" \
     "gitlab git@gitlab.com:AzureHound/${folder}.git"; do
     read -r name url <<<"$r"

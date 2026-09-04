@@ -41,16 +41,10 @@ in
         IdentityFile = secrets.codeberg.path;
       };
 
-      "forgejo.eyeshome.duckdns.org" = {
-        User = "git";
-        HostName = "forgejo.eyeshome.duckdns.org";
-        Port = 222;
-        IdentityFile = secrets.forgejo.path;
-      };
-
       "forgejo.softshell.duckdns.org" = {
-        User = "forgejo";
+        User = "git";
         HostName = "forgejo.softshell.duckdns.org";
+        Port = 222;
         IdentityFile = secrets.forgejo.path;
       };
 
