@@ -13,7 +13,7 @@ hl.window_rule({ match = { title = center_float_title }, float = true })
 hl.window_rule({ match = { title = center_float_title }, center = true })
 hl.window_rule({ match = { title = center_float_title }, size = "(monitor_w*0.7) (monitor_h*0.7)" })
 
-local center_float_mini = "^(.*org.gnome.Calculator.*|.*udiskie.*)$"
+local center_float_mini = "^(.*udiskie.*)$"
 hl.window_rule({ match = { class = center_float_mini }, float = true })
 hl.window_rule({ match = { class = center_float_mini }, center = true })
 hl.window_rule({ match = { class = center_float_mini }, size = "(monitor_w*0.3) (monitor_h*0.4)" })
@@ -23,7 +23,6 @@ local center_float_large =
 hl.window_rule({ match = { class = center_float_large }, float = true })
 hl.window_rule({ match = { class = center_float_large }, center = true })
 hl.window_rule({ match = { class = center_float_large }, size = "(monitor_w*0.7) (monitor_h*0.7)" })
-
 
 -- Floats
 hl.window_rule({
@@ -51,7 +50,6 @@ hl.window_rule({ match = { class = "^(.*thunderbird.*)$" }, workspace = "8 silen
 -- Productivity/Dev
 hl.window_rule({ match = { class = "^(.*VSCodium.*|.*neovide.*)$" }, workspace = "4" })
 hl.window_rule({ match = { class = "^(.*obsidian.*)$" }, workspace = "8 silent" })
-
 
 -- Apps
 local keepassxc = "^(.*keepassxc.*)$"
@@ -85,6 +83,11 @@ local yazi = "^(terminal filechooser)$"
 hl.window_rule({ match = { title = yazi }, float = true })
 hl.window_rule({ match = { title = yazi }, center = true })
 hl.window_rule({ match = { title = yazi }, size = "(monitor_w*0.84) (monitor_h*0.84)" })
+
+local cal = "^(org\\.gnome\\.Calculator)$"
+hl.window_rule({ match = { class = cal }, float = true })
+hl.window_rule({ match = { class = cal }, center = true })
+hl.window_rule({ match = { class = cal }, size = "360 616" })
 
 local thunderbird = "^(.*thunderbird.*)$"
 hl.window_rule({ match = { class = thunderbird, title = "^(.*Write.*)" }, float = true })
@@ -145,7 +148,6 @@ local windows = "^(.*RAIL:.*)$"
 hl.window_rule({ match = { class = windows }, rounding = 0 })
 hl.window_rule({ match = { class = windows }, opacity = "1 override 1 override 1 override" })
 hl.window_rule({ match = { class = windows }, border_color = "rgba(8aadf4ff) rgba(b7bdf8ff)" })
-
 
 -- █▀█ █ █ █   █▀▀ █▀
 -- █▀▄ █▄█ █▄▄ ██▄ ▄█
