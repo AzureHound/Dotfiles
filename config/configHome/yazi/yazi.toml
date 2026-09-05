@@ -1,7 +1,7 @@
 [mgr]
 ratio = [1, 4, 3]
 sort_by = "natural"
-sort_dir_first = true
+# sort_dir_first = true
 show_hidden = true
 sort_sensitive = false
 linemode = "size"
@@ -18,49 +18,49 @@ cursor_blink = true
 folder = [
   { run = 'hyprctl dispatch exec "[float; size 60% 60%; center 1] nautilus" "$@"', orphan = true, desc = "nautilus", for = "linux" },
   { run = '''fish -c "nvim "$1""''', block = true, desc = "neovim", for = "linux" },
-  { run = 'kitty --detach nvim "$@"', orphan = true, desc = "neovim (detached)", for = "linux" },
+  { run = 'kitty --detach nvim %s1', orphan = true, desc = "neovim (detached)", for = "linux" },
   { run = '''fish -c "lazygit -p "$1""''', block = true, desc = "lazygit", for = "linux" },
-  { run = 'zeditor  "$@"', orphan = true, desc = "zeditor", for = "linux" },
-  { run = 'kitty "$@"', orphan = true, desc = "kitty", for = "linux" },
-  { run = 'xdg-open "$@"', orphan = true, desc = "xdg-open", for = "linux" },
+  { run = 'zeditor  %s1', orphan = true, desc = "zeditor", for = "linux" },
+  { run = 'kitty %s1', orphan = true, desc = "kitty", for = "linux" },
+  { run = 'xdg-open %s1', orphan = true, desc = "xdg-open", for = "linux" },
 ]
 
 extract = [
-  { run = 'ouch d -y "$@"', desc = "Extract here with ouch", for = "unix" },
+  { run = 'ouch d -y %s1', desc = "Extract here with ouch", for = "unix" },
 ]
 
 text = [
-  { run = '$EDITOR "$@"', block = true, desc = "$EDITOR", for = "linux" },
-  { run = 'nvim "$@"', block = true, desc = "neovim", for = "linux" },
-  { run = 'kitty --detach nvim "$@"', block = true, desc = "neovim (detached)", for = "linux" },
-  { run = 'zeditor  "$@"', orphan = true, desc = "zeditor", for = "linux" },
-  { run = 'xdg-open "$@"', orphan = true, desc = "xdg-open", for = "linux" },
+  { run = '$EDITOR %s1', block = true, desc = "$EDITOR", for = "linux" },
+  { run = 'nvim %s1', block = true, desc = "neovim", for = "linux" },
+  { run = 'kitty --detach nvim %s1', block = true, desc = "neovim (detached)", for = "linux" },
+  { run = 'zeditor  %s1', orphan = true, desc = "zeditor", for = "linux" },
+  { run = 'xdg-open %s1', orphan = true, desc = "xdg-open", for = "linux" },
 ]
 
 document = [
-  { run = 'xdg-open "$@"', orphan = true, desc = "xdg-open", for = "linux" },
-  { run = 'zathura "$@"', orphan = true, desc = "zathura", for = "linux" },
-  { run = 'libreoffice "$@"', orphan = true, desc = "libreoffice", for = "linux" },
+  { run = 'xdg-open %s1', orphan = true, desc = "xdg-open", for = "linux" },
+  { run = 'zathura %s1', orphan = true, desc = "zathura", for = "linux" },
+  { run = 'libreoffice %s1', orphan = true, desc = "libreoffice", for = "linux" },
 ]
 
 image = [
-  { run = 'swayimg "$@"', orphan = true, desc = "swayimg", for = "linux" },
-  { run = 'xdg-open "$@"', orphan = true, desc = "xdg-open", for = "linux" },
-  { run = 'satty --filename "$@"', orphan = true, desc = "satty", for = "linux" },
+  { run = 'swayimg %s1', orphan = true, desc = "swayimg", for = "linux" },
+  { run = 'xdg-open %s1', orphan = true, desc = "xdg-open", for = "linux" },
+  { run = 'satty --filename %s1', orphan = true, desc = "satty", for = "linux" },
 ]
 
 audio = [
-  { run = 'xdg-open "$@"', orphan = true, desc = "xdg-open", for = "linux" },
-  { run = 'mpv "$@"', orphan = true, desc = "mpv", for = "linux" },
+  { run = 'xdg-open %s1', orphan = true, desc = "xdg-open", for = "linux" },
+  { run = 'mpv %s1', orphan = true, desc = "mpv", for = "linux" },
 ]
 
 video = [
-  { run = 'xdg-open "$@"', orphan = true, desc = "xdg-open", for = "linux" },
-  { run = 'mpv "$@"', orphan = true, desc = "mpv", for = "linux" },
+  { run = 'xdg-open %s1', orphan = true, desc = "xdg-open", for = "linux" },
+  { run = 'mpv %s1', orphan = true, desc = "mpv", for = "linux" },
 ]
 
 fallback = [
-  { run = 'xdg-open "$@"', orphan = true, desc = "xdg-open", for = "linux" },
+  { run = 'xdg-open %s1', orphan = true, desc = "xdg-open", for = "linux" },
 ]
 
 [open]
