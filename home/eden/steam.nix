@@ -25,7 +25,10 @@ in
             };
           };
 
-          # plugins = with pkgs.millenniumPlugins; [ global-launch-options ];
+          plugins = with pkgs.millenniumPlugins; [
+            # browser-history
+            # hltb
+          ];
         };
       }
     else
