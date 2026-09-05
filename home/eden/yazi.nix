@@ -39,8 +39,8 @@ in
         eza-preview = pkgs.fetchFromGitHub {
           owner = "ahkohd";
           repo = "eza-preview.yazi";
-          rev = "dc9c103";
-          hash = "sha256-OsBkK+BkCczUqDsl/PYhSWtgVK7l8I5KWHH9xBmgzRw=";
+          rev = "main";
+          hash = "sha256-8isGaJSVu7R76hKfGRszMdBOItYjVOKqvDpv9ccpBAs=";
         };
 
         fg = pkgs.fetchFromGitHub {
@@ -61,7 +61,7 @@ in
           owner = "ndtoan96";
           repo = "ouch.yazi";
           rev = "main";
-          hash = "sha256-14x/bD0aD9hXONaqQD8Dt7rLBCMq7bkVLH6uCPOQ0C8=";
+          hash = "sha256-t1kUo4+YODeTG9d5Yq/vxElcmRHIebC5TRv+uDGG88c=";
         };
 
         searchjump = pkgs.fetchFromGitHub {
